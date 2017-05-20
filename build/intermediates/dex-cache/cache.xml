@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/f57ec3c6db680e78cfbbf1b945a45c07e7395399/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e5553c3597d5f766a8364a49925fcbb304bb091b">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_60aa4274b3d5b86567e81ae8c41c3c3157c3ac2e.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="11401e3bd2f85e68fe7fbbe2e5a2606ed64ae27c">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d1b89fecabdce43527c148a7c882267f935acc64/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/8745088bc06b9179ed53735397b504427a90ccf2/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_e7de88d2fba698817cc5740779ca46e5341439f7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/3f796cb1c5c0b1b4a83604dd80fddb2dd7bdd8eb/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_c2ae52cb1b142dbe30361719e50aa359b393d04d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Applications/Android Studio.app/Contents/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/commons-io-2.4_db9d9c7f5dc9abc44c05f9a56b43532b2a4af315.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/5a1204b008fa92ff6812b85c5c7cd95145bca5c1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_717fc33200a8ebbc8f2a084102a9cde375cf1037.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/76496e0cd36fb518fe5c0ce0e7d21a80f1924def/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_5cb6f455a704aa68747ec4d25b37dbbda6b82515.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/48a8bf30e0a5b9ba1fda8625381132f8554f10f9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_2058d233db5835a5b9ab5fca637479493c79d9ef.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_3e28973e974982ef0f18a77660602d12419acf69/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/47feb4a1fa1b87e9ade7de76d865d85d65c102c6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_cc9da6a3e12de4c46f0aebcc2de6e242c5f915fd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/a2466f34fa35e50cd36e863854af4c49be021f89/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_76eb552b08091e0535ff15f1433056e6680754fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/adc979df16fea02d67608183979893f63bef01dc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_76c79e29d9fb51505f575d714ec6f7ce6d0c23c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/939beb95513a14a9089683ac2b8379eaba4b7a99/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_5768c79811076980ea9efacf7cb4a6a49e57fa08.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/6b4c8ae01117f9ed21c6ccc77e0850fe6f43bf11/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_5efe7be90ff49a16b85c31d37c968e2ee312394a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/339271aa6db5d766a54fee388447291bbd33ac74/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_15ede945afda8993396cac28c374f7b9b9730cb2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/7b479e1ef9da4f11656ac0cf24e06d4de2b2be34/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_60d400dad658984b3f62b6e8364d2bf940b9c715.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/.android/build-cache/8e4d1e462a9464d343412fac0498d23a22466f09/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/classes_38c989758ef6638a87a5446874db1b9a5b16a39c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/eduardopalacios/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/Users/eduardopalacios/Downloads/MyApp-master/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.0_3f30b3dcce6e845f258f355033ae0afecadd1970.jar" />
+    </item>
+
+</items>
