@@ -201,5 +201,5 @@ public class FragmentAhorrar extends Fragment {
         boton_guardar = (Button)view.findViewById(R.id.Button3);
         ed_Porcentaje= (EditText)view.findViewById(R.id.edit_percent);
         ed_pesos=(EditText) view.findViewById(R.id.edit_pesos);
-   }
+    }
 }
