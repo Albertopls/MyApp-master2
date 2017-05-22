@@ -1,12 +1,22 @@
 package com.example.eduardopalacios.myapp;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -33,7 +43,7 @@ public class FragmentInicio extends Fragment {
         // Required empty public constructor
     }
 
-    /**
+   /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
@@ -105,4 +115,5 @@ public class FragmentInicio extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
