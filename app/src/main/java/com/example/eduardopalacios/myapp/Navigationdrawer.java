@@ -39,18 +39,8 @@ public class Navigationdrawer extends AppCompatActivity
         setContentView(R.layout.activity_navigationdrawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //Agregar fracmento
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentInicio()).commit();
-        getSupportActionBar().setTitle("Inicio");
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+
         Intent intent2=getIntent();
         String first_name2=intent2.getStringExtra("identificador");
 
@@ -94,6 +84,12 @@ public class Navigationdrawer extends AppCompatActivity
         toggle2.syncState();
         NavigationView navigationView2 = (NavigationView) findViewById(R.id.nav_view);
         navigationView2.setNavigationItemSelectedListener(this);
+
+        //Agregar fracmento
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentInicio()).commit();
+        getSupportActionBar().setTitle("Inicio");
+
     }
 
     @Override

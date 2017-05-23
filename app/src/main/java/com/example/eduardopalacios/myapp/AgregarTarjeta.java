@@ -21,11 +21,6 @@ import org.json.JSONObject;
 
 public class AgregarTarjeta extends AppCompatActivity {
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +39,6 @@ public class AgregarTarjeta extends AppCompatActivity {
         final Bundle bundle = getIntent().getExtras();
         String valores = bundle.getString("ide");
         final String valor_2=bundle.getString("boleano");
-
-
-
-
-
-
-
-
 
         ArrayAdapter<String> adaptador=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,datos);
         lista.setAdapter(adaptador);
@@ -193,11 +180,6 @@ public class AgregarTarjeta extends AppCompatActivity {
             }
 
         }
-
-
-
-
-
 
         return dato;
     }
