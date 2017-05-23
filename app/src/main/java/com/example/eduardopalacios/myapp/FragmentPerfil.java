@@ -1,12 +1,14 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -26,6 +28,8 @@ public class FragmentPerfil extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,8 +67,12 @@ public class FragmentPerfil extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_fragment_perfil, container, false);
+        // Cambiar de letra el titulo
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_perfil, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -37,6 +38,7 @@ public class FragmentInicio extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    TextView titulo, consejo, consejo2, consejo3, consejo4;
     private OnFragmentInteractionListener mListener;
 
     public FragmentInicio() {
@@ -73,8 +75,26 @@ public class FragmentInicio extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view=inflater.inflate(R.layout.fragment_fragment_inicio, container, false);
+
+        //Cambiar tipo de letra
+        titulo= (TextView) view.findViewById(R.id.text_titulo);
+        consejo= (TextView) view.findViewById(R.id.text_consejo1);
+        consejo2=(TextView) view.findViewById(R.id.text_consejo2);
+        consejo3=(TextView) view.findViewById(R.id.text_consejo3);
+        consejo4=(TextView) view.findViewById(R.id.text_consejo4);
+        Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");
+        Typeface face_consejo= Typeface.createFromAsset(getActivity().getAssets(),"fonts/KeepCalm-Medium.ttf");
+        titulo.setTypeface(face);
+        consejo.setTypeface(face_consejo);
+        consejo2.setTypeface(face_consejo);
+        consejo3.setTypeface(face_consejo);
+        consejo4.setTypeface(face_consejo);
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_inicio, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
