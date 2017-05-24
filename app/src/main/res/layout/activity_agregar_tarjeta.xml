@@ -29,8 +29,24 @@
         android:orientation="vertical">
 
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/text_nuevacuenta"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="nueva cuenta"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -130,16 +146,15 @@
                 android:id="@+id/textospinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="    Seleccionr Banco" />
+                android:text="    Seleccionar Banco" />
 
             <Spinner
                 android:id="@+id/spiner_fecha"
-                style="@style/editText_style"
+                style="@style/Spinner_style"
                 android:layout_alignLeft="@+id/textospinner"
-                android:layout_alignParentEnd="true"
                 android:layout_below="@+id/textospinner"
-                android:layout_marginTop="13dp"></Spinner>
+                android:layout_marginTop="13dp"
+                android:layout_alignParentEnd="true"></Spinner>
 
         </RelativeLayout>
 

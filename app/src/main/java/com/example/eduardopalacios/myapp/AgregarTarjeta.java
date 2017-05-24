@@ -1,6 +1,7 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -18,14 +20,18 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class AgregarTarjeta extends AppCompatActivity {
+
+    TextView titulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_tarjeta);
 
+        titulo= (TextView)findViewById(R.id.text_nuevacuenta);
         final EditText num_tarjeta =(EditText)findViewById(R.id.edit_nombre);
         final EditText cvc=(EditText)findViewById(R.id.edit_pesos);
         final EditText fecha =(EditText)findViewById(R.id.edit_fecha);
@@ -35,6 +41,8 @@ public class AgregarTarjeta extends AppCompatActivity {
         final Button btnaceptar=(Button)findViewById(R.id.Btnguardar);
         final Spinner lista=(Spinner)findViewById(R.id.spiner_fecha);
         final String[] datos={"Bancomer","City Banamex","HSBC","Banorte","ScotiaBank","Santander"};
+
+        cambiar_letra();
 
         final Bundle bundle = getIntent().getExtras();
         String valores = bundle.getString("ide");
@@ -185,7 +193,12 @@ public class AgregarTarjeta extends AppCompatActivity {
     }
 
 
+    public void cambiar_letra(){
+        Typeface face= Typeface.createFromAsset(getAssets(),"fonts/Langdon.otf");
 
+        titulo.setTypeface(face);
+
+    }
 
 
 

@@ -13,6 +13,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -39,6 +41,7 @@ public class FragmentInicio extends Fragment {
     private String mParam2;
 
     TextView titulo, consejo, consejo2, consejo3, consejo4;
+    ImageButton boton_tarjetas, boton_compras, boton_metaahorro, boton_ahorrar;
     private OnFragmentInteractionListener mListener;
 
     public FragmentInicio() {
@@ -78,6 +81,35 @@ public class FragmentInicio extends Fragment {
         View view=inflater.inflate(R.layout.fragment_fragment_inicio, container, false);
         inicializar(view);
         cambiar_letra();
+
+        //Botones
+        boton_tarjetas.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
+        boton_compras.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
+        boton_metaahorro.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
+
+        boton_ahorrar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
+
+
 
 
 
@@ -133,6 +165,11 @@ public class FragmentInicio extends Fragment {
         consejo2=(TextView) view.findViewById(R.id.text_consejo2);
         consejo3=(TextView) view.findViewById(R.id.text_consejo3);
         consejo4=(TextView) view.findViewById(R.id.text_consejo4);
+        boton_tarjetas= (ImageButton) view.findViewById(R.id.imageButton_tarjetas);
+        boton_compras=   (ImageButton) view.findViewById(R.id.imageButton_compra);
+        boton_metaahorro= (ImageButton) view.findViewById(R.id.imageButton_metaahorro);
+        boton_ahorrar=(ImageButton) view.findViewById(R.id.imageButton_ahorrar);
+
     }
 
     public void cambiar_letra(){
