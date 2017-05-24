@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:id="@+id/Signup"
             android:layout_marginBottom="15dp"
             android:text="Sign Up"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
@@ -41,6 +42,7 @@
            style="@style/editText_style_register"
             android:id="@+id/first_name"
             android:hint="First Name"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
 
             />
 
@@ -48,6 +50,7 @@
             style="@style/editText_style_register"
             android:id="@+id/last_name"
             android:hint="Last Name"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
 
             />
 
@@ -55,6 +58,7 @@
             style="@style/editText_style_register"
             android:id="@+id/email_address_register"
             android:hint="Email Address"
+            android:drawableLeft="@drawable/ic_email_black"
             android:inputType="textEmailAddress"
 
             />
@@ -63,6 +67,7 @@
             style="@style/editText_style_register"
             android:id="@+id/password_register"
             android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:hint="Password"
 
             />
@@ -71,6 +76,7 @@
             style="@style/editText_style_register"
             android:id="@+id/confirm_password"
             android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:hint="Confirm Password"
 
             />

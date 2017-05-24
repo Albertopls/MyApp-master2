@@ -1,12 +1,14 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -15,22 +17,23 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class Register_Activity extends AppCompatActivity  {
-
+    TextView Signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        Signup=(TextView)findViewById(R.id.Signup);
         final EditText first_n=(EditText)findViewById(R.id.first_name);
         final EditText last_n=(EditText)findViewById(R.id.last_name);
         final EditText emaiil=(EditText)findViewById(R.id.email_address_register);
         final EditText password_register=(EditText)findViewById(R.id.password_register);
         final EditText confrim_password=(EditText)findViewById(R.id.confirm_password);
         final Button submit=(Button)findViewById(R.id.submit);
-
+        cambiar_tipoletra();
 
         submit.setOnClickListener(new View.OnClickListener() {
 
@@ -238,6 +241,12 @@ public class Register_Activity extends AppCompatActivity  {
             }
         }
         return contador;
+    }
+
+
+    public void cambiar_tipoletra(){
+        Typeface face= Typeface.createFromAsset(getAssets(),"fonts/Langdon.otf");
+        Signup.setTypeface(face);
     }
 
 }

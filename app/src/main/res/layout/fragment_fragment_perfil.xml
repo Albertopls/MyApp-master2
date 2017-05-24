@@ -7,48 +7,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="348dp">
-
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="576dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="385dp"
-                android:layout_height="258dp"
-                android:src="@drawable/cover" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="50dp"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="84dp"
-                android:layout_marginLeft="100dp"
-                android:layout_height="wrap_content"
-                android:text="Nombre" />
-        </LinearLayout>
-
-    </LinearLayout>
 
 
 </FrameLayout>

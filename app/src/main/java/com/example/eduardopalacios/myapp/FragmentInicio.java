@@ -76,20 +76,8 @@ public class FragmentInicio extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_fragment_inicio, container, false);
-
-        //Cambiar tipo de letra
-        titulo= (TextView) view.findViewById(R.id.text_titulo);
-        consejo= (TextView) view.findViewById(R.id.text_consejo1);
-        consejo2=(TextView) view.findViewById(R.id.text_consejo2);
-        consejo3=(TextView) view.findViewById(R.id.text_consejo3);
-        consejo4=(TextView) view.findViewById(R.id.text_consejo4);
-        Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");
-        Typeface face_consejo= Typeface.createFromAsset(getActivity().getAssets(),"fonts/KeepCalm-Medium.ttf");
-        titulo.setTypeface(face);
-        consejo.setTypeface(face_consejo);
-        consejo2.setTypeface(face_consejo);
-        consejo3.setTypeface(face_consejo);
-        consejo4.setTypeface(face_consejo);
+        inicializar(view);
+        cambiar_letra();
 
 
 
@@ -134,6 +122,27 @@ public class FragmentInicio extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    //METODOS
+
+    public void inicializar(View view){
+        titulo= (TextView) view.findViewById(R.id.text_titulo);
+        consejo= (TextView) view.findViewById(R.id.text_consejo1);
+        consejo2=(TextView) view.findViewById(R.id.text_consejo2);
+        consejo3=(TextView) view.findViewById(R.id.text_consejo3);
+        consejo4=(TextView) view.findViewById(R.id.text_consejo4);
+    }
+
+    public void cambiar_letra(){
+        Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");
+        Typeface face_consejo= Typeface.createFromAsset(getActivity().getAssets(),"fonts/KeepCalm-Medium.ttf");
+        titulo.setTypeface(face);
+        consejo.setTypeface(face_consejo);
+        consejo2.setTypeface(face_consejo);
+        consejo3.setTypeface(face_consejo);
+        consejo4.setTypeface(face_consejo);
     }
 
 }

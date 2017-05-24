@@ -69,14 +69,7 @@ public class Navigationdrawer extends AppCompatActivity
         }
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer2 = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle2 = new ActionBarDrawerToggle(this, drawer2, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

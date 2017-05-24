@@ -187,7 +187,7 @@
 
                     <ImageButton
                         android:id="@+id/imageButton6"
-                        android:layout_width="193dp"
+                        android:layout_width="match_parent"
                         android:layout_height="114dp"
                         app:srcCompat="@drawable/descarga" />
                 </LinearLayout>

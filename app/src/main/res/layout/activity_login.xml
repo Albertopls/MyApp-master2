@@ -39,6 +39,7 @@
             style="@style/editText_style"
             android:inputType="textEmailAddress"
             android:hint="Email"
+            android:drawableLeft="@drawable/ic_email_black"
             android:id="@+id/Email_address"
              />
 
@@ -46,6 +47,7 @@
             style="@style/editText_style"
             android:inputType="textPassword"
             android:hint="Password"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:id="@+id/password"
             />
 
