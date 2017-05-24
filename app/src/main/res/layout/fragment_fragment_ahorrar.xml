@@ -7,6 +7,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -23,29 +24,31 @@
             android:layout_marginTop="15dp"
             android:orientation="vertical">
 
+
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textView7"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
                     android:layout_gravity="center_vertical"
-                    android:text="Número de cuenta"
+                    android:text="Cuenta"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spn_cuenta"
+                    android:id="@+id/Spinner_cuenta"
                     style="@style/editText_style"
-                    android:layout_width="fill_parent"
+                    android:layout_width="163dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp" />
-            </LinearLayout>
 
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -54,20 +57,23 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textView4"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
                     android:layout_gravity="center_vertical"
                     android:text="Fijar meta"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <Spinner
-                    android:id="@+id/spn_1"
+                <EditText
+                    android:id="@+id/editText_meta"
                     style="@style/editText_style"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp" />
+                    android:layout_margin="16dp"
+                    android:inputType="numberDecimal" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -86,13 +92,22 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spn_2"
+                    android:id="@+id/Spinner_cargo"
                     style="@style/editText_style"
-                    android:layout_width="fill_parent"
+                    android:layout_width="153dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp" />
 
+                <TextView
+                    android:id="@+id/textView_mes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="16dp"
+                    android:text="MES(ES)" />
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -109,13 +124,46 @@
                     android:textStyle="bold" />
 
                 <Spinner
-                    android:id="@+id/spn_3"
+                    android:id="@+id/Spinner_años"
                     style="@style/editText_style"
-                    android:layout_width="fill_parent"
+                    android:layout_width="163dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp" />
 
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:text="AÃ‘OS" />
+
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/button_calc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Calcular" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -125,44 +173,11 @@
                 android:weightSum="1">
 
                 <TextView
-                    android:layout_width="@dimen/seekbar_label_length"
+                    android:id="@+id/textView_cantidad"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.78"
-                    android:text="ELIGE TU TIPO DE DESCUENTO"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <ImageButton
-                    android:id="@+id/Button_Porcentaje"
-                    android:layout_width="87dp"
-                    android:layout_height="106dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_weight="0.11"
-                    android:src="@drawable/porcentaje"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp" />
-
-                <ImageButton
-                    android:id="@+id/Button_Pesos"
-                    android:layout_width="87dp"
-                    android:layout_height="106dp"
-
-                    android:layout_weight="0.15"
-                    android:src="@drawable/pesos"
-                    android:text="$"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp" />
+                    android:layout_weight="1"
+                    android:text="TextView" />
             </LinearLayout>
 
 
@@ -172,38 +187,6 @@
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 android:weightSum="1">
-
-                <EditText
-                    android:id="@+id/edit_percent"
-                    style="@style/editText_style"
-                    android:layout_width="256dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:maxLength="2"
-                    android:hint="Porcentaje que desea ahorrar"
-                    android:enabled="false"
-                    android:inputType="number" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <EditText
-                    android:id="@+id/edit_pesos"
-                    style="@style/editText_style"
-                    android:layout_width="256dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Cantidad en $ que desea ahorrar"
-                    android:maxLength="4"
-                    android:enabled="false"
-                    android:inputType="number" />
 
 
             </LinearLayout>
