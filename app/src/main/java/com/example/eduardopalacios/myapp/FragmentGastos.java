@@ -217,7 +217,6 @@ public class FragmentGastos extends Fragment {
     //Métodos
 
     public void inicializarComponentes(View view){
-        spinner_periodo = (Spinner)view.findViewById(R.id.spn_periodo);
         spinner_categoria = (Spinner)view.findViewById(R.id.spn_categoria);
         ed_cantidad= (EditText) view.findViewById(R.id.edit_cantidad);
         boton_GuardarGasto= (Button) view.findViewById(R.id.Button_GuardarGasto);
