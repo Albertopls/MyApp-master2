@@ -57,13 +57,13 @@ android:background="@drawable/wall">
             <TextView
 
                 android:layout_width="163dp"
-                android:id="@+id/no_tarjetas"
+                android:id="@+id/title_consejo2"
                 android:layout_height="match_parent"
                 android:layout_margin="15dp"
                 android:layout_weight="0.82"
-                android:text="¿REALMENTE NECESITAS ESA COMPRA?"
+                android:text="¿realmente necesitas esa compra?"
                 android:textColor="#142b3b"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 />
 
 

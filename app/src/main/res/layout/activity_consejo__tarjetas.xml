@@ -63,9 +63,9 @@
                 android:layout_height="match_parent"
                 android:layout_margin="15dp"
                 android:layout_weight="0.82"
-                android:text="NO HAGAS USO EXCESIVO DE TARJETAS"
+                android:text="no hagas uso excesivo de tarjetas"
                 android:textColor="#142b3b"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 />
 
 

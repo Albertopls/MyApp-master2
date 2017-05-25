@@ -57,13 +57,13 @@
                 <TextView
 
                     android:layout_width="163dp"
-                    android:id="@+id/no_tarjetas"
+                    android:id="@+id/title_consejo4"
                     android:layout_height="match_parent"
                     android:layout_margin="15dp"
                     android:layout_weight="0.82"
-                    android:text="SIEMPRE ESTÁS A TIEMPO DE AHORRAR:"
+                    android:text="siempre estás a tiempo de ahorrar:"
                     android:textColor="#142b3b"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
                     />
 
 

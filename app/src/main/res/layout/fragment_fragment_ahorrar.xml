@@ -43,7 +43,7 @@
 
                 <Spinner
                     android:id="@+id/Spinner_cuenta"
-                    style="@style/editText_style"
+                    style="@style/Spinner_style"
                     android:layout_width="163dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp" />
@@ -93,7 +93,7 @@
 
                 <Spinner
                     android:id="@+id/Spinner_cargo"
-                    style="@style/editText_style"
+                    style="@style/Spinner_style"
                     android:layout_width="153dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp" />
@@ -125,7 +125,7 @@
 
                 <Spinner
                     android:id="@+id/Spinner_años"
-                    style="@style/editText_style"
+                    style="@style/Spinner_style"
                     android:layout_width="163dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp" />
@@ -160,6 +160,7 @@
                     android:id="@+id/button_calc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/button_submit"
                     android:layout_weight="1"
                     android:text="Calcular" />
             </LinearLayout>
@@ -173,11 +174,22 @@
                 android:weightSum="1">
 
                 <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.34"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:text="Cantidad a ahorrar:" />
+
+                <TextView
                     android:id="@+id/textView_cantidad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView" />
+                    android:layout_weight="0.47"
+                    android:text=""
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"/>
             </LinearLayout>
 
 
@@ -205,7 +217,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="50dp"
-                    android:layout_weight="0.25"
+                    android:layout_weight="0.60"
                     android:background="@drawable/button_submit"
                     android:text="GUARDAR"
                     android:textColor="#FFFFFF"
