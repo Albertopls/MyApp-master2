@@ -2,24 +2,34 @@ package com.example.eduardopalacios.myapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewCompat;
+import android.transition.TransitionInflater;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -41,7 +51,9 @@ public class FragmentInicio extends Fragment {
     private String mParam2;
 
     TextView titulo, consejo, consejo2, consejo3, consejo4;
-    ImageButton boton_tarjetas, boton_compras, boton_metaahorro, boton_ahorrar;
+    ImageView boton_tarjetas, boton_compras;
+   Button boton_detalles;
+    ImageButton boton_metaahorro, boton_ahorrar;
     private OnFragmentInteractionListener mListener;
 
     public FragmentInicio() {
@@ -81,6 +93,19 @@ public class FragmentInicio extends Fragment {
         View view=inflater.inflate(R.layout.fragment_fragment_inicio, container, false);
         inicializar(view);
         cambiar_letra();
+
+
+
+        boton_detalles.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            Intent intent= new Intent(getActivity(), Consejo_Tarjetas.class);
+           ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),boton_tarjetas,"detalles");
+            startActivity(intent, optionsCompat.toBundle());
+
+
+        }
+        });
 
         //Botones
         boton_tarjetas.setOnClickListener(new View.OnClickListener(){
@@ -165,10 +190,11 @@ public class FragmentInicio extends Fragment {
         consejo2=(TextView) view.findViewById(R.id.text_consejo2);
         consejo3=(TextView) view.findViewById(R.id.text_consejo3);
         consejo4=(TextView) view.findViewById(R.id.text_consejo4);
-        boton_tarjetas= (ImageButton) view.findViewById(R.id.imageButton_tarjetas);
-        boton_compras=   (ImageButton) view.findViewById(R.id.imageButton_compra);
+        boton_tarjetas= (ImageView) view.findViewById(R.id.imageButton_tarjetas);
+        boton_compras=(ImageView) view.findViewById(R.id.imageButton_compra);
         boton_metaahorro= (ImageButton) view.findViewById(R.id.imageButton_metaahorro);
         boton_ahorrar=(ImageButton) view.findViewById(R.id.imageButton_ahorrar);
+        boton_detalles=(Button) view.findViewById(R.id.button_detalles);
 
     }
 

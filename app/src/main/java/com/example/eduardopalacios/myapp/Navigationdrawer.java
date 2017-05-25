@@ -141,12 +141,12 @@ public class Navigationdrawer extends AppCompatActivity
             getSupportActionBar().setTitle("Empieza a ahorrar");
 
         } else if (id == R.id.nav_slideshow) {
-            fragment= new FragmentGastos();
-            FragmentoSeleccionado=true;
+            fragment = new FragmentGastos();
+            FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Mis gastos");
+        }else if(id== R.id.nav_manage){
+
         } else if (id == R.id.reg_tarjeta) {
-
-
             Boolean opcion;
             Bundle bundle = getIntent().getExtras();
             String opcions=bundle.getString("identificador_boolean");

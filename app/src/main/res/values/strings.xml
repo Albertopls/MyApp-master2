@@ -9,4 +9,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detalles_tarjeta">Es importante tener presente que su uso sin control puede crearnos numerosos problemas. Hacer un uso indiscriminado de nuestra tarjeta de crédito provocará un exceso de deuda en nuestras cuentas que puede ser muy difícil de mitigar.  </string>
+
 </resources>

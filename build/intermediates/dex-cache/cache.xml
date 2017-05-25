@@ -2,31 +2,94 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Adriana\.android\build-cache\a9e4ea421be80e4ad5149855a8fdc9a5f92a7ccf\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
-        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_3ae76d9969fdf7ab0c08eda9b0a01e1d34603b43\classes.dex" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_6f0899547b19d0e49c3457cc6cdb0459227b0005.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Adriana\.android\build-cache\3bd1217b1fb640d86f85efa37f145a668d05d8f9\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="b0931faf0c654fe831522c229d219b079b15612d">
-        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_67c82e7a7c29b5ef73594a4ca65c16256b3c6fe0\classes.dex" />
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_a9d9fc9e5417653bf9dcafada201a374d71325ce.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Ana\.android\build-cache\8b80e7177acacf3258a0c82b8a737faaf1c627f8\output\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Adriana\.android\build-cache\42c2492cf49eea0dbaaf71c6dd42007729685d40\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
-        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a67e5d6edb587a85bc0d6532fc756f15f4ae1974\classes.dex" />
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_a65ebeb5a82786bcfc3e6543249671da948e8586.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Adriana\.android\build-cache\8b87ef9af99faa7e5fc35adceca6043daa8273d0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_863af29f700214d7a0a0e1604c3b6dbec6c11618.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Adriana\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_ff2100406b3072d7f25cdb24bfcbe57590726b46.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Adriana\.android\build-cache\9f8690286bf9bdce81cd7057ea9220d7957bedb8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_8ebf25f0d701efa6ed07c411aec645a6ac232445.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Adriana\.android\build-cache\bf12b7da6ccb88ff41248b04d46f971136b9e5ff\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_0f762ff127774104c8038a30502be88d143fe7ff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Adriana\.android\build-cache\a84a4d2199ef9d754cffe434d093400ff4ca1d52\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_587345da86686cf9d3dd703805b3b8be832b6967.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Adriana\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_7cc1aff77bbc4c0e7081f7d6b7360bc770fb9c8f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Adriana\.android\build-cache\0d14627c81c9429b133e4fb280aa26ffde4ca3a0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_3232f96f65779f8450032ed9eca92b3e5ba0d724.jar" />
     </item>
 
 </items>
