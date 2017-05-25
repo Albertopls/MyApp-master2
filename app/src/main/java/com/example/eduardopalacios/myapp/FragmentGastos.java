@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -45,10 +46,13 @@ public class FragmentGastos extends Fragment {
 
     EditText ed_cantidad;
 
-    Button boton_GuardarGasto;
+    Button boton_GuardarGasto, boton_mas;
+
+    ListView lista_gastos;
 
     Spinner spinner_categoria, spinner_periodo;
     ArrayAdapter<String> adapter;
+    ArrayAdapter<String> adapterList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -89,12 +93,6 @@ public class FragmentGastos extends Fragment {
         View view= inflater.inflate(R.layout.fragment_fragment_gastos, container, false);
         inicializarComponentes(view);
 
-        //Spinner tiempo
-
-        String contenido_periodo[]={"Dia", "Mes", "Año"};
-        adapter= new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, contenido_periodo);
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spinner_periodo.setAdapter(adapter);
 
 
         //Spinner categoria
@@ -103,6 +101,21 @@ public class FragmentGastos extends Fragment {
         adapter= new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, contenido_categoria);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner_categoria.setAdapter(adapter);
+
+
+        //Boton más
+        boton_GuardarGasto.setOnClickListener(new View.OnClickListener() {
+            @Override
+             public void onClick(View v) {
+                String nombre = spinner_categoria.getSelectedItem().toString();
+                String cantidad = ed_cantidad.getText().toString().trim();
+                adapterList.add(nombre +  "\t" + cantidad);
+                lista_gastos.setAdapter(adapterList);
+                ed_cantidad.setText("");
+                spinner_categoria.setId(0);
+                                                  }
+                                              });
+
 
         //Boton Guardar gasto
 
@@ -220,6 +233,8 @@ public class FragmentGastos extends Fragment {
         spinner_categoria = (Spinner)view.findViewById(R.id.spn_categoria);
         ed_cantidad= (EditText) view.findViewById(R.id.edit_cantidad);
         boton_GuardarGasto= (Button) view.findViewById(R.id.Button_GuardarGasto);
+        boton_mas= (Button) view.findViewById(R.id.button_m);
+        lista_gastos= (ListView) view.findViewById(R.id.list_gastos);
 
     }
 

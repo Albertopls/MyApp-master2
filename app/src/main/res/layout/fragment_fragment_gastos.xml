@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.78"
-                    android:text="MIS GASTOS"
+                    android:text="NUEVO INFORME DE GASTOS"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -45,6 +45,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/edit_nombre_informe"
+                style="@style/editText_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nombre informe"
+                android:layout_weight="0.60" />
 
             </LinearLayout>
 
@@ -62,7 +80,8 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Cantidad gastada $"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:numeric="decimal" />
 
                 <Spinner
                     android:id="@+id/spn_categoria"
@@ -71,6 +90,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number" />
+
+                <Button
+                    android:id="@+id/button_m"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="+" />
 
 
             </LinearLayout>
@@ -102,9 +128,10 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <ListView
+                    android:id="@+id/list_gastos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
         </LinearLayout>
             <LinearLayout
@@ -113,27 +140,6 @@
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 android:weightSum="1">
-
-                <Button
-                    android:id="@+id/Button_Limpiar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="41dp"
-                    android:layout_marginLeft="50dp"
-                    android:background="@drawable/button_submit"
-                    android:text="LIMPIAR"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp"
-                    android:layout_weight="0.16" />
-
-                <Button
-                    android:id="@+id/Button_VerInforme"
-                    android:layout_width="117dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="50dp"
-                    android:background="@drawable/button_submit"
-                    android:text="VER INFORME"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
 
 
             </LinearLayout>

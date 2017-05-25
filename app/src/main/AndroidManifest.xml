@@ -28,7 +28,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".Consejo_Compras" />
         <activity android:name=".Consejo_MetaAhorro" />
-        <activity android:name=".Consejo_TiempoAhorrar"></activity>
+        <activity android:name=".Consejo_TiempoAhorrar" />
     </application>
 
 </manifest>
