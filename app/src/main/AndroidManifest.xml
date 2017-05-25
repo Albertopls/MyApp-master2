@@ -21,13 +21,14 @@
         <activity android:name=".login" />
         <activity android:name=".Register_Activity" />
         <activity android:name=".AgregarTarjeta" />
-        <activity android:name=".Consejo_Tarjetas"/>
-
+        <activity android:name=".Consejo_Tarjetas" />
         <activity
             android:name=".Navigationdrawer"
             android:label="@string/title_activity_navigationdrawer"
             android:theme="@style/AppTheme" />
-
+        <activity android:name=".Consejo_Compras" />
+        <activity android:name=".Consejo_MetaAhorro" />
+        <activity android:name=".Consejo_TiempoAhorrar"></activity>
     </application>
 
 </manifest>

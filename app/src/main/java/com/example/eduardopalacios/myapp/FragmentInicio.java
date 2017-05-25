@@ -51,9 +51,9 @@ public class FragmentInicio extends Fragment {
     private String mParam2;
 
     TextView titulo, consejo, consejo2, consejo3, consejo4;
-    ImageView boton_tarjetas, boton_compras;
-   Button boton_detalles;
-    ImageButton boton_metaahorro, boton_ahorrar;
+    ImageView img_tarjetas, img_compras, img_metaahorro, img_ahorrar;;
+   Button boton_detalles, boton_detalles2, boton_detalles3, boton_detalles4;
+
     private OnFragmentInteractionListener mListener;
 
     public FragmentInicio() {
@@ -100,7 +100,7 @@ public class FragmentInicio extends Fragment {
         @Override
         public void onClick(View view) {
             Intent intent= new Intent(getActivity(), Consejo_Tarjetas.class);
-           ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),boton_tarjetas,"detalles");
+           ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), img_tarjetas,"detalles");
             startActivity(intent, optionsCompat.toBundle());
 
 
@@ -108,32 +108,36 @@ public class FragmentInicio extends Fragment {
         });
 
         //Botones
-        boton_tarjetas.setOnClickListener(new View.OnClickListener(){
+        boton_detalles2.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
+                Intent intent= new Intent(getActivity(), Consejo_Compras.class);
+                ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),img_compras,"detalles2");
+                startActivity(intent, optionsCompat.toBundle());
+
 
             }
         });
-        boton_compras.setOnClickListener(new View.OnClickListener(){
+        boton_detalles3.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
+                Intent intent= new Intent(getActivity(), Consejo_MetaAhorro.class);
+                ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),img_metaahorro,"detalles3");
+                startActivity(intent, optionsCompat.toBundle());
+
 
             }
         });
-        boton_metaahorro.setOnClickListener(new View.OnClickListener(){
+        boton_detalles4.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
+                Intent intent= new Intent(getActivity(), Consejo_TiempoAhorrar.class);
+                ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),img_ahorrar,"detalles4");
+                startActivity(intent, optionsCompat.toBundle());
+
 
             }
         });
-
-        boton_ahorrar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-
-            }
-        });
-
 
 
 
@@ -190,11 +194,14 @@ public class FragmentInicio extends Fragment {
         consejo2=(TextView) view.findViewById(R.id.text_consejo2);
         consejo3=(TextView) view.findViewById(R.id.text_consejo3);
         consejo4=(TextView) view.findViewById(R.id.text_consejo4);
-        boton_tarjetas= (ImageView) view.findViewById(R.id.imageButton_tarjetas);
-        boton_compras=(ImageView) view.findViewById(R.id.imageButton_compra);
-        boton_metaahorro= (ImageButton) view.findViewById(R.id.imageButton_metaahorro);
-        boton_ahorrar=(ImageButton) view.findViewById(R.id.imageButton_ahorrar);
+        img_tarjetas= (ImageView) view.findViewById(R.id.imageButton_tarjetas);
+        img_compras=(ImageView) view.findViewById(R.id.imageButton_compra);
+        img_metaahorro= (ImageView) view.findViewById(R.id.imageButton_metaahorro);
+        img_ahorrar=(ImageView) view.findViewById(R.id.imageButton_ahorrar);
         boton_detalles=(Button) view.findViewById(R.id.button_detalles);
+        boton_detalles2=(Button) view.findViewById(R.id.button_detalles2);
+        boton_detalles3=(Button) view.findViewById(R.id.button_detalles3);
+        boton_detalles4=(Button) view.findViewById(R.id.button_detalles4);
 
     }
 
