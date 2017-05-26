@@ -136,17 +136,18 @@ public class Navigationdrawer extends AppCompatActivity
             getSupportActionBar().setTitle("Perfil");
 
         }else if (id == R.id.nav_gallery) {
-            fragment= new FragmentAhorrar();
-            FragmentoSeleccionado=true;
-            getSupportActionBar().setTitle("Empieza a ahorrar");
+                fragment= new FragmentAhorrar();
+                FragmentoSeleccionado=true;
+                getSupportActionBar().setTitle("Empieza a ahorrar");
 
         } else if (id == R.id.nav_slideshow) {
             fragment = new FragmentNuevoInforme();
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Mis gastos");
 
+
         }else if(id== R.id.nav_informe_mis_gastos){
-            fragment = new FragmentGastos();
+            fragment = new VerInforme();
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Ver Informe Gastos");
 

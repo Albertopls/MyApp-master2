@@ -60,7 +60,7 @@ public class login extends AppCompatActivity {
         {
             public void onClick(View v)
             {
-                login.this.startActivity(new Intent(login.this,Register_Activity.class));
+                login.this.startActivity(new Intent(login.this,Navigationdrawer.class));
             }
 
         });

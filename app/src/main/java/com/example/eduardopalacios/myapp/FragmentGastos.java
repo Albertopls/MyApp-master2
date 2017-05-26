@@ -55,13 +55,14 @@ public class FragmentGastos extends Fragment {
 
     Button boton_GuardarGasto, boton_mas;
 
-    ListView lista_gastos;
+    ListView lista_categoria, lista_cantidad;
 
     Spinner spinner_categoria, spinner_periodo;
     ArrayAdapter<String> adapter;
-    ArrayAdapter<String> adapterList;
+    ArrayAdapter<String> adapterList_cantidad, adapterList_categoria;
 
-    List<String> contenido_lista = new ArrayList<String>();
+
+    List<String> contenido_lista_cantidad = new ArrayList<String>();
     List<String> contenido_lista_categoria = new ArrayList<String>();
     private OnFragmentInteractionListener mListener;
 
@@ -117,14 +118,22 @@ public class FragmentGastos extends Fragment {
         boton_mas.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View v) {
-                //String nombre = spinner_categoria.getSelectedItem().toString();
+
                 String nombre = spinner_categoria.getSelectedItem().toString();
                 String cantidad = ed_cantidad.getText().toString().trim();
 
-                contenido_lista.add(cantidad);
+                contenido_lista_cantidad.add(cantidad);
                 contenido_lista_categoria.add(nombre);
-                adapterList= new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista);
-                lista_gastos.setAdapter(adapterList);
+
+                adapterList_cantidad= new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista_cantidad);
+                lista_cantidad.setAdapter(adapterList_cantidad);
+
+                adapterList_categoria= new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista_categoria);
+                lista_categoria.setAdapter(adapterList_categoria);
+
+
+
+
                 ed_cantidad.setText("");
                 spinner_categoria.setId(0);
 
@@ -249,7 +258,8 @@ public class FragmentGastos extends Fragment {
         ed_cantidad= (EditText) view.findViewById(R.id.edit_cantidad);
         boton_GuardarGasto= (Button) view.findViewById(R.id.Button_GuardarGasto);
         boton_mas= (Button) view.findViewById(R.id.button_m);
-        lista_gastos= (ListView) view.findViewById(R.id.list_gastos);
+        lista_categoria= (ListView) view.findViewById(R.id.list_categoria);
+        lista_cantidad= (ListView) view.findViewById(R.id.list_cantidad);
         nuevo_informe=(TextView) view.findViewById(R.id.text_nuevoinforme2);
 
     }
