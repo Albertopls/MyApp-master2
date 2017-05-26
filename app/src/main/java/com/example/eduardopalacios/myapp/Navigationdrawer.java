@@ -144,6 +144,12 @@ public class Navigationdrawer extends AppCompatActivity
             fragment = new FragmentNuevoInforme();
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Mis gastos");
+
+        }else if(id== R.id.nav_manage){
+            fragment = new VerInforme();
+            FragmentoSeleccionado = true;
+            getSupportActionBar().setTitle("Ver Informe Gastos");
+
         }else if(id== R.id.nav_manage){
             fragment = new FragmentConfiguracion();
             FragmentoSeleccionado = true;

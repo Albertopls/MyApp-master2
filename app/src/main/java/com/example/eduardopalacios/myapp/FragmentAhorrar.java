@@ -154,15 +154,15 @@ public class FragmentAhorrar extends Fragment {
             public void onClick(View view) {
                 AlertDialog.Builder builder= new AlertDialog.Builder(getActivity());
                 builder.setTitle("DATOS AHORRO");
-                builder.setMessage("Â¿Deseas guardar?");
+                builder.setMessage("¿Deseas guardar?");
 
-                builder.setPositiveButton("SHI", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 });
-                builder.setNegativeButton("Ã‘O", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

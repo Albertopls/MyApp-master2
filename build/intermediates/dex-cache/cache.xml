@@ -3,57 +3,138 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Ana\.android\build-cache\ff538cb65980d966e578316619432c819013d8c4\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="22be17057dd8b94f54686b629758e64152d511a1">
-        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_7bf301efd6ccdca68e2039f7914e3b9766ddd9b1\classes.dex" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b0166dc6f8e3ba7306c03a621264ef0091628a20\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Adriana\.android\build-cache\560beea8726e24e724980ebe2ed4ffbcafe329d1\output\jars\classes.jar"
+        jar="C:\Users\Ana\.android\build-cache\943682d333ecf7d95e0450bb1dcb370327a8a20c\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8c8d2d89e2a65c05219387328a518733bbc751b8\classes.dex" />
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_08307d5749f5d5d904ad3a9e1d0624908680e2ee\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Adriana\.android\build-cache\a13c8709b10a506328741635174dca27b0a39716\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0e8d68c717c82040561647429bf5614c4539549f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Adriana\.android\build-cache\76a0250584110e4113fc677bb98b3ef611326822\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c11365df690a4f30dcf9558bbb9ec2ab4ca7d803\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Adriana\.android\build-cache\05c1b94f9ac99fb8710bf908bb846f1dd37c84b0\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
-        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7fe7e4d90ccddd31c634020faef6e0981ffb5041\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
-        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_65406f73a5f0d9ca15ed9f07e3550b3a5b0cc5a2\classes.dex" />
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_3ae76d9969fdf7ab0c08eda9b0a01e1d34603b43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\09eb1ae3d5934461f0bb76700c11c04ab225325f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ef4342c8da045083e4fbff0a2ccef9e50c268913\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\8c8e3dbfa8b3ad244be00a7b37a693f3d1a565cc\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c775bfb47849c7b72000664254537cee3b5c594c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\3e9cb5b889d770b3f26bfc7a98384c1c3ab51099\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9ef054c80beca1b11b290d6ce83e1e06cee9ec4a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\fd281f67ac14a362eaac7de3f2f543970028807e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f17ccc38b983f5ad247ee1e7e0ba90b9962d4635\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\3d6e9d749f598e66c95efccf59c050b5deaa6ff1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5cea8eb2befd293c9ca613a03c79a637079ea94c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\a5995a6f0070be419e82690919221a28089be769\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cb8d82da5aa30a5814821d54ee9e561a78c0ad1f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\ee996419b1acd7201a7968ba000dae8dbfb922ac\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cfba22e9a58ff0c7b3b796b0d021f40470a08e27\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\a3b41d29977c412113665fa9f4e6e77560f79a51\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1559cde483b8f31a307360a20a7997e0b8e6098f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_b9521028695088e341b9cfae827553e501ac837e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f686f2d5affb850ce944f2e973bd59ddc7895587">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_67c82e7a7c29b5ef73594a4ca65c16256b3c6fe0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_637a6744ac1b4cf085c3271bb6d8b5d56a2f9093\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ana\.android\build-cache\f8eb3dce3e25f549daa69fd8b8cf0506d5c8fad4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\Ana\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b71d15e70e325fe5e2e6bfd9d02e6a6e57afd1ab\classes.dex" />
     </item>
 
 </items>
