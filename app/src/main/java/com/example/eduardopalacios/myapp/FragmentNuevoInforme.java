@@ -4,9 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -26,6 +28,8 @@ public class FragmentNuevoInforme extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    Button boton_crearInforme;
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,8 +67,26 @@ public class FragmentNuevoInforme extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_nuevo_informe, container, false);
+        View view= inflater.inflate(R.layout.fragment_fragment_nuevo_informe, container, false);
+        inicializar(view);
+
+       boton_crearInforme.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+           //Guardar informe
+
+
+            //Empezar nueva actividad
+            FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentGastos()).commit();
+            //getActivity().getActionBar().setTitle("Agregar Gastos");
+
+
+        }
+    });
+
+
+        return view ;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -104,5 +126,10 @@ public class FragmentNuevoInforme extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    public void inicializar(View view){
+        boton_crearInforme=(Button)view.findViewById(R.id.Button_nuevoinforme);
     }
 }

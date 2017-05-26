@@ -27,6 +27,9 @@ import android.os.StrictMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +61,8 @@ public class FragmentGastos extends Fragment {
     ArrayAdapter<String> adapter;
     ArrayAdapter<String> adapterList;
 
+    List<String> contenido_lista = new ArrayList<String>();
+    List<String> contenido_lista_categoria = new ArrayList<String>();
     private OnFragmentInteractionListener mListener;
 
     public FragmentGastos() {
@@ -113,12 +118,17 @@ public class FragmentGastos extends Fragment {
             @Override
              public void onClick(View v) {
                 //String nombre = spinner_categoria.getSelectedItem().toString();
+                String nombre = spinner_categoria.getSelectedItem().toString();
                 String cantidad = ed_cantidad.getText().toString().trim();
-                adapterList.add(cantidad);
+
+                contenido_lista.add(cantidad);
+                contenido_lista_categoria.add(nombre);
+                adapterList= new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista);
                 lista_gastos.setAdapter(adapterList);
                 ed_cantidad.setText("");
                 spinner_categoria.setId(0);
-                                                  }
+
+            }
                                               });
 
 
