@@ -1,12 +1,9 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.SharedPreferencesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +11,7 @@ import android.widget.TextView;
 
 import com.android.volley.Response;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -78,12 +76,40 @@ public class FragmentPerfil extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_perfil, container, false);
+        inicializar_componentes(view);
+
+        String userName = textViewUsername.getText().toString();
+        String userEmail = textViewUserEmail.getText().toString();
+
+        Response.Listener<String> responseListener = new Response.Listener<String>(){
+
+            @Override
+            public void onResponse(String response) {
+                boolean exito = false;
+
+                try {
+
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+
+                    if (success){
+                        String userName = jsonResponse.getString("first_name");
+                        String userEmail = jsonResponse.getString("email");
+
+                        textViewUsername.setText(userName);
+                        textViewUserEmail.setText(userEmail);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
         // Cambiar de letra el titulo
 
-        textViewUsername = (TextView) view.findViewById(R.id.textViewUsername);
-        textViewUserEmail = (TextView) view.findViewById(R.id.textViewUseremail);
-        textViewUsername.setText(mParam1);
-        textViewUserEmail.setText(mParam2);
+
+
         return view;
     }
 
@@ -127,5 +153,10 @@ public class FragmentPerfil extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public void inicializar_componentes(View view){
+        textViewUsername = (TextView) view.findViewById(R.id.textViewUsername);
+        textViewUserEmail = (TextView) view.findViewById(R.id.textViewUseremail);
     }
 }
