@@ -1,14 +1,20 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.SharedPreferencesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.android.volley.Response;
+
+import org.json.JSONObject;
 
 
 /**
@@ -20,7 +26,11 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class FragmentPerfil extends Fragment {
+
     // TODO: Rename parameter arguments, choose names that match
+
+    private TextView textViewUsername, textViewUserEmail;
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -70,10 +80,15 @@ public class FragmentPerfil extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment_perfil, container, false);
         // Cambiar de letra el titulo
 
-
-        // Inflate the layout for this fragment
+        textViewUsername = (TextView) view.findViewById(R.id.textViewUsername);
+        textViewUserEmail = (TextView) view.findViewById(R.id.textViewUseremail);
+        textViewUsername.setText(mParam1);
+        textViewUserEmail.setText(mParam2);
         return view;
     }
+
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

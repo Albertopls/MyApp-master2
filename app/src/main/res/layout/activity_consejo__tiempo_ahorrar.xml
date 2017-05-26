@@ -40,10 +40,10 @@
 
                 <ImageView
                     android:id="@+id/imageButton_compra"
-                    android:layout_width="258dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="155dp"
-                    app:srcCompat="@drawable/descarga"
-                    android:transitionName="detalles4"/>
+                    android:transitionName="detalles4"
+                    app:srcCompat="@drawable/descarga" />
 
             </LinearLayout>
 
@@ -61,7 +61,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="15dp"
                     android:layout_weight="0.82"
-                    android:text="siempre estás a tiempo de ahorrar:"
+                    android:text="siempre estas a tiempo de ahorrar:"
                     android:textColor="#142b3b"
                     android:textSize="20sp"
                     />
@@ -73,7 +73,7 @@
                 android:id="@+id/card_view"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                card_view:cardBackgroundColor="#C8E5E3"
+                card_view:cardBackgroundColor="#80C9C6"
                 android:layout_width="327dp"
                 android:layout_height="181dp"
                 card_view:cardCornerRadius="8dp"
@@ -92,7 +92,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="15dp"
                         android:layout_weight="0.82"
-                        android:text="@string/detalles_tarjeta"
+                        android:text="@string/detalles_tiempo"
                         android:textColor="#142b3b"
                         android:textSize="15sp"
                         />

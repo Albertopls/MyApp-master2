@@ -12,6 +12,42 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Adriana\.android\build-cache\560beea8726e24e724980ebe2ed4ffbcafe329d1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8c8d2d89e2a65c05219387328a518733bbc751b8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Adriana\.android\build-cache\a13c8709b10a506328741635174dca27b0a39716\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0e8d68c717c82040561647429bf5614c4539549f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Adriana\.android\build-cache\76a0250584110e4113fc677bb98b3ef611326822\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c11365df690a4f30dcf9558bbb9ec2ab4ca7d803\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Adriana\.android\build-cache\05c1b94f9ac99fb8710bf908bb846f1dd37c84b0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7fe7e4d90ccddd31c634020faef6e0981ffb5041\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Adriana\Documents\MyApp-master2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"

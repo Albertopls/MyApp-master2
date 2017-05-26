@@ -73,7 +73,7 @@ android:background="@drawable/wall">
             android:id="@+id/card_view"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            card_view:cardBackgroundColor="#C8E5E3"
+            card_view:cardBackgroundColor="#A3D5D1"
             android:layout_width="327dp"
             android:layout_height="181dp"
             card_view:cardCornerRadius="8dp"
@@ -92,7 +92,7 @@ android:background="@drawable/wall">
                     android:layout_height="match_parent"
                     android:layout_margin="15dp"
                     android:layout_weight="0.82"
-                    android:text="@string/detalles_tarjeta"
+                    android:text="@string/detalles_compras"
                     android:textColor="#142b3b"
                     android:textSize="15sp"
                     />

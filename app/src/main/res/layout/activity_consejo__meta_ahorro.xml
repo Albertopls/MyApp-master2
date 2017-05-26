@@ -40,8 +40,8 @@
 
                 <ImageView
                     android:id="@+id/imageButton_compra"
-                    android:layout_width="258dp"
-                    android:layout_height="155dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="185dp"
                     app:srcCompat="@drawable/pesos"
                     android:transitionName="detalles3"/>
 
@@ -61,7 +61,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="15dp"
                     android:layout_weight="0.82"
-                    android:text="sé comprometido con tu meta de ahorro:"
+                    android:text="se comprometido con tu meta de ahorro:"
                     android:textColor="#142b3b"
                     android:textSize="20sp"
                     />
@@ -73,15 +73,15 @@
                 android:id="@+id/card_view"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                card_view:cardBackgroundColor="#C8E5E3"
+                card_view:cardBackgroundColor="#80C9C6"
                 android:layout_width="327dp"
-                android:layout_height="181dp"
+                android:layout_height="wrap_content"
                 card_view:cardCornerRadius="8dp"
-                android:layout_weight="3.34">
+                android:layout_weight="4.06">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="229dp"
                     android:layout_marginTop="15dp"
                     android:orientation="horizontal"
                     android:weightSum="1">
@@ -92,10 +92,9 @@
                         android:layout_height="match_parent"
                         android:layout_margin="15dp"
                         android:layout_weight="0.82"
-                        android:text="@string/detalles_tarjeta"
+                        android:text="@string/detalles_metaahorro"
                         android:textColor="#142b3b"
-                        android:textSize="15sp"
-                        />
+                        android:textSize="15sp" />
 
 
                 </LinearLayout>

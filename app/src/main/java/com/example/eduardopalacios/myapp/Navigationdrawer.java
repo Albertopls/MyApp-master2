@@ -31,7 +31,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Navigationdrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, FragmentInicio.OnFragmentInteractionListener, FragmentPerfil.OnFragmentInteractionListener, FragmentGastos.OnFragmentInteractionListener, FragmentAhorrar.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, FragmentInicio.OnFragmentInteractionListener, FragmentNuevoInforme.OnFragmentInteractionListener, FragmentPerfil.OnFragmentInteractionListener, FragmentGastos.OnFragmentInteractionListener, FragmentAhorrar.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,10 +141,13 @@ public class Navigationdrawer extends AppCompatActivity
             getSupportActionBar().setTitle("Empieza a ahorrar");
 
         } else if (id == R.id.nav_slideshow) {
-            fragment = new FragmentGastos();
+            fragment = new FragmentNuevoInforme();
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Mis gastos");
         }else if(id== R.id.nav_manage){
+            fragment = new FragmentConfiguracion();
+            FragmentoSeleccionado = true;
+            getSupportActionBar().setTitle("Configuración");
 
         } else if (id == R.id.reg_tarjeta) {
             Boolean opcion;

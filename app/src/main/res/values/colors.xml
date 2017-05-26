@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="color_register">#FFFFFF</color>
     <color name= "text_hint_color">#000000</color>
+    <color name="colorRed">#D50000</color>
+    <color name="colorBlue">#2196F3</color>
+    <color name="colorYellow">#FFEB3B</color>
 </resources>

@@ -1,0 +1,42 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wall"
+    tools:context="com.example.eduardopalacios.myapp.FragmentConfiguracion">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+       <TextView
+           android:text="Elige el color de la aplicacion"
+           android:id="@+id/textView3"
+           android:layout_gravity="center"
+           android:layout_marginTop="25dp"
+           android:textSize="20sp"
+           android:layout_marginBottom="25dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+       
+       <Button
+           android:id="@+id/btnred"
+           android:text="@string/color_rojo"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+       
+       <Button
+           android:id="@+id/btnblue"
+           android:text="@string/color_azul"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+       
+       <Button
+           android:id="@+id/btnyellow"
+           android:text="@string/color_amarillo"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+   </LinearLayout>
+
+</FrameLayout>

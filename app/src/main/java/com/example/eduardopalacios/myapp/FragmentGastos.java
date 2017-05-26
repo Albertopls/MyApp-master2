@@ -2,6 +2,7 @@ package com.example.eduardopalacios.myapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -45,6 +47,8 @@ public class FragmentGastos extends Fragment {
     private String mParam2;
 
     EditText ed_cantidad;
+
+    TextView nuevo_informe;
 
     Button boton_GuardarGasto, boton_mas;
 
@@ -92,6 +96,7 @@ public class FragmentGastos extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_fragment_gastos, container, false);
         inicializarComponentes(view);
+        cambiar_letra();
 
 
 
@@ -104,12 +109,12 @@ public class FragmentGastos extends Fragment {
 
 
         //Boton más
-        boton_GuardarGasto.setOnClickListener(new View.OnClickListener() {
+        boton_mas.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View v) {
-                String nombre = spinner_categoria.getSelectedItem().toString();
+                //String nombre = spinner_categoria.getSelectedItem().toString();
                 String cantidad = ed_cantidad.getText().toString().trim();
-                adapterList.add(nombre +  "\t" + cantidad);
+                adapterList.add(cantidad);
                 lista_gastos.setAdapter(adapterList);
                 ed_cantidad.setText("");
                 spinner_categoria.setId(0);
@@ -235,6 +240,12 @@ public class FragmentGastos extends Fragment {
         boton_GuardarGasto= (Button) view.findViewById(R.id.Button_GuardarGasto);
         boton_mas= (Button) view.findViewById(R.id.button_m);
         lista_gastos= (ListView) view.findViewById(R.id.list_gastos);
+        nuevo_informe=(TextView) view.findViewById(R.id.text_nuevoinforme2);
+
+    }
+    public void cambiar_letra(){
+        Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");
+        nuevo_informe.setTypeface(face);
 
     }
 

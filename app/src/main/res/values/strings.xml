@@ -10,5 +10,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="detalles_tarjeta">Es importante tener presente que su uso sin control puede crearnos numerosos problemas. Hacer un uso indiscriminado de nuestra tarjeta de crédito provocará un exceso de deuda en nuestras cuentas que puede ser muy difícil de mitigar.  </string>
+    <string name="detalles_tiempo">"Nunca es tarde para ahorrar. Es verdad que no va a ser igual que una persona comience un plan de ahorro después de los 40 años que si lo hubiese establecido antes, pero es posible lograrlo"</string>
+    <string name="detalles_metaahorro">El establecimiento de objetivos de ahorro específicos te ayudará a comenzar a ahorrar dinero. Cuando se acaba de poner dinero en el banco sobre una base regular sin ningún fin puede ser más fácil de retirar por diversas razones, y el uso de ese dinero destinado para el ahorro es más fácil de justificar. Por esto es importante que el ahorro tenga una razón específica.</string>
+    <string name="detalles_compras">Crees que todo aquello que nos llama la atención debe ser nuestro puede ser el principio de un desbalance en tu economía, por lo que siempre, antes de comprar algo, debes ponerte a pensar si realmente lo necesitas o sólo es un capricho</string>
+    <string name="color_rojo">Color Rojo</string>
+    <string name="color_azul">Color Azul</string>
+    <string name="color_amarillo">Color Amarillo</string>
+
 
 </resources>
