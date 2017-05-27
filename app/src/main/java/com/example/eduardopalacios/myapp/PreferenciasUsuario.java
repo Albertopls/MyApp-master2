@@ -79,4 +79,24 @@ public class PreferenciasUsuario {
         return id_informe;
     }
 
+    public boolean escribePreferencia_nombre_informe(String nombre_informe){
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        SharedPreferences.Editor editor=prefs.edit();
+        try{
+            editor.putString("nombre_informe", nombre_informe);
+            editor.apply();
+            return true;
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    public String cargar_nombre_informe() {
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        String nombre_informe = prefs.getString("nombre_informe", "");
+        return nombre_informe;
+    }
+
 }

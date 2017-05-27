@@ -127,13 +127,18 @@ public class FragmentNuevoInforme extends Fragment {
 
                                             if (success) {
                                                 String idinforme = jsonResponse.getString("id_Informe_gastos");
+                                                String nombre_informe_gastos = jsonResponse.getString("nombre_informe");
 
                                                 int id_informe=Integer.parseInt(idinforme);
                                                 prefs_id.escribePreferencia_idinforme(id_informe);
+                                                prefs_id.escribePreferencia_nombre_informe(nombre_informe_gastos);
 
 
                                                 FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
                                                 fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentGastos()).commit();
+
+                                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                                builder.setMessage(" Informe  "+prefs_id.cargar_nombre_informe()+"  Creado").show();
 
 
                                             } else {
