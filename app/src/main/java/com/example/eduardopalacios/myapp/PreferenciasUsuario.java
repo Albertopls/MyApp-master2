@@ -50,10 +50,30 @@ public class PreferenciasUsuario {
         }
     }
 
+    public boolean escribePreferencia_email(String email){
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        SharedPreferences.Editor editor=prefs.edit();
+        try{
+            editor.putString("email", email);
+            editor.apply();
+            return true;
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
     public String cargar_nombreusuario() {
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
         String first_name = prefs.getString("first_name", "");
         return first_name;
+    }
+
+    public String cargar_email() {
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        String email = prefs.getString("email", "");
+        return email;
     }
 
 

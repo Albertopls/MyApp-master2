@@ -81,11 +81,11 @@ public class FragmentPerfil extends Fragment {
         //Nombre de usuario
         final PreferenciasUsuario prefs_id= new PreferenciasUsuario(getActivity());
         String nombre= prefs_id.cargar_nombreusuario();
+        String email = prefs_id.cargar_email();
 
 
         textViewUsername.setText(nombre);
-        String userName = textViewUsername.getText().toString();
-        String userEmail = textViewUserEmail.getText().toString();
+        textViewUserEmail.setText(email);
 
         Response.Listener<String> responseListener = new Response.Listener<String>(){
 
@@ -99,11 +99,10 @@ public class FragmentPerfil extends Fragment {
                     boolean success = jsonResponse.getBoolean("success");
 
                     if (success){
-                        String userName = jsonResponse.getString("first_name");
-                        String userEmail = jsonResponse.getString("email");
                         String nombre= prefs_id.cargar_nombreusuario();
+                        String email = prefs_id.cargar_email();
                         textViewUsername.setText(nombre);
-                        textViewUserEmail.setText(userEmail);
+                        textViewUserEmail.setText(email);
                     }
 
                 } catch (JSONException e) {
@@ -163,6 +162,6 @@ public class FragmentPerfil extends Fragment {
 
     public void inicializar_componentes(View view){
         textViewUsername = (TextView) view.findViewById(R.id.textViewUsername);
-        textViewUserEmail = (TextView) view.findViewById(R.id.textViewUseremail);
+        textViewUserEmail = (TextView) view.findViewById(R.id.textViewUserEmail);
     }
 }
