@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -21,7 +22,15 @@ import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.lang.reflect.Array;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 import java.util.Vector;
 
@@ -56,6 +65,8 @@ public class FragmentAhorrar extends Fragment {
     EditText Edittext_meta;
     //TextView
     TextView Textview_cantidad;
+
+    PreferenciasUsuario prefs_id;
 
     private OnFragmentInteractionListener mListener;
 
@@ -92,6 +103,11 @@ public class FragmentAhorrar extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
+
+        adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1);
+        Spinner_cuenta.setAdapter(adapter);
+        webServiceREST();
 
 
     }
@@ -102,8 +118,12 @@ public class FragmentAhorrar extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_fragment_ahorrar, container, false);
         inicializar_componentes(view);
+        prefs_id= new PreferenciasUsuario(this.getActivity());
+        int id_usuario= prefs_id.cargar_userid();
 
         //Spinners
+
+
 
 
         String [] contenido_cargo={"1","2","3","6"};
@@ -145,13 +165,17 @@ public class FragmentAhorrar extends Fragment {
                         cantidad= meta/res;
                         break;
                 }
+
                 Textview_cantidad.setText(""+cantidad);
             }
         });
+
+
         //Boton guardar e ir a la siguiente actividad
         boton_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Pregunta
                 AlertDialog.Builder builder= new AlertDialog.Builder(getActivity());
                 builder.setTitle("DATOS AHORRO");
                 builder.setMessage("¿Deseas guardar?");
@@ -160,8 +184,14 @@ public class FragmentAhorrar extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+                        //Método de guardar registro
+                        int id_usuario= prefs_id.cargar_userid();
+
                     }
                 });
+
+
+
                 builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -215,6 +245,11 @@ public class FragmentAhorrar extends Fragment {
     }
 
 
+
+
+    //Métodos
+
+
     public void inicializar_componentes(View view){
         Spinner_cuenta= (Spinner)view.findViewById(R.id.Spinner_cuenta);
         Spinner_cargo= (Spinner)view.findViewById(R.id.Spinner_cargo);
@@ -224,4 +259,48 @@ public class FragmentAhorrar extends Fragment {
         button_calcular= (Button)view.findViewById(R.id.button_calc);
         boton_guardar = (Button)view.findViewById(R.id.Button3);
     }
+
+    private void webServiceREST() {
+        try{
+            URL url = new URL("https://bitchiest-core.000webhostapp.com/ConsultarCuenta.php");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream())); //Leer lo que entre de informacion
+            String line = "";
+            String resultadoWebService = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                resultadoWebService += line;
+            }
+            bufferedReader.close();
+            parseInformation(resultadoWebService);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseInformation(String resultadoJson) {
+        JSONArray jsonArray = null;
+        String cuenta, id_cuenta;
+
+        try {
+            jsonArray = new JSONArray(resultadoJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            try {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                //Dependen de como este configurado el servicio web
+                id_cuenta = jsonObject.getString("id_cuenta");
+                cuenta = jsonObject.getString("numero_tarjeta");
+                adapter.add("Clave: " + id_cuenta+ "\tNúmero: " + cuenta);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
+
 }

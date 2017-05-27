@@ -1,14 +1,26 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.opengl.EGLDisplay;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 /**
@@ -30,6 +42,8 @@ public class FragmentNuevoInforme extends Fragment {
     private String mParam2;
 
     Button boton_crearInforme;
+
+    EditText edit_nuevoinforme;
 
     private OnFragmentInteractionListener mListener;
 
@@ -69,16 +83,106 @@ public class FragmentNuevoInforme extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_fragment_nuevo_informe, container, false);
         inicializar(view);
+        final PreferenciasUsuario prefs_id= new PreferenciasUsuario(getActivity());
 
        boton_crearInforme.setOnClickListener(new View.OnClickListener(){
         @Override
         public void onClick(View view) {
            //Guardar informe
 
+            final String nombre= edit_nuevoinforme.getText().toString();
+
+            if (validaciones(edit_nuevoinforme)) {
+
+                final int user_id= prefs_id.cargar_userid();
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+
+                    @Override
+                    public void onResponse(String response) {
+
+
+                        try {
+
+
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+
+                            if (success) {
+
+                                Response.Listener<String> responseListener = new Response.Listener<String>(){
+
+                                    @Override
+                                    public void onResponse(String response) {
+                                        boolean exito=false;
+
+                                        try {
+
+
+                                            JSONObject jsonResponse = new JSONObject(response);
+                                            boolean success = jsonResponse.getBoolean("success");
+
+
+                                            if (success) {
+                                                String idinforme = jsonResponse.getString("id_Informe_gastos");
+
+                                                int id_informe=Integer.parseInt(idinforme);
+                                                prefs_id.escribePreferencia_idinforme(id_informe);
+
+
+                                                FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                                                fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentGastos()).commit();
+
+
+                                            } else {
+
+                                            }
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+
+                                        }
+
+
+
+
+                                    }
+
+                                };
+
+
+                                Id_InformeRequest informeRequest = new Id_InformeRequest(nombre, user_id, responseListener);
+                                RequestQueue queue = Volley.newRequestQueue(getContext());
+                                queue.add(informeRequest);
+
+
+
+
+
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                        }
+
+                    }
+
+                };
+
+
+               NuevoInformeRequest registerRequest = new NuevoInformeRequest(nombre, user_id, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getContext());
+                queue.add(registerRequest);
+
+
+            }
 
             //Empezar nueva actividad
-            FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentGastos()).commit();
+
             //getActivity().getActionBar().setTitle("Agregar Gastos");
 
 
@@ -131,5 +235,26 @@ public class FragmentNuevoInforme extends Fragment {
 
     public void inicializar(View view){
         boton_crearInforme=(Button)view.findViewById(R.id.Button_nuevoinforme);
+        edit_nuevoinforme=(EditText)view.findViewById(R.id.edit_nuevo_informe);
     }
+
+
+
+    public boolean validaciones(EditText nombre_informe)
+    {
+        boolean dato=true;
+
+            if(nombre_informe.getText().toString().trim().length()==0)
+            {
+                dato=false;
+                Toast.makeText(getContext(), "You did not enter a name", Toast.LENGTH_SHORT).show();
+
+            }
+
+        return dato;
+    }
+
+
+
+
 }

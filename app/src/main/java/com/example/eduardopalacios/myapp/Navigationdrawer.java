@@ -31,7 +31,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Navigationdrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, FragmentInicio.OnFragmentInteractionListener, FragmentNuevoInforme.OnFragmentInteractionListener, FragmentPerfil.OnFragmentInteractionListener, FragmentGastos.OnFragmentInteractionListener, FragmentAhorrar.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, VerInforme.OnFragmentInteractionListener, FragmentInicio.OnFragmentInteractionListener, FragmentNuevoInforme.OnFragmentInteractionListener, FragmentPerfil.OnFragmentInteractionListener, FragmentGastos.OnFragmentInteractionListener, FragmentAhorrar.OnFragmentInteractionListener {
+
+    PreferenciasUsuario prefid= new PreferenciasUsuario(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class Navigationdrawer extends AppCompatActivity
 
         Intent intent2=getIntent();
         String first_name2=intent2.getStringExtra("identificador");
+        String first_name= prefid.cargar_nombreusuario();
 
         if(first_name2==null)
         {
@@ -54,7 +57,7 @@ public class Navigationdrawer extends AppCompatActivity
 
 
 
-                Toast.makeText(this, "Welcome " + first_name2, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Welcome " + first_name, Toast.LENGTH_LONG).show();
 
 
             }
@@ -64,7 +67,7 @@ public class Navigationdrawer extends AppCompatActivity
         if(!cargar_falso())
         {
             Intent intent = getIntent();
-            String first_name = intent.getStringExtra("identificador");
+           // String first_name = intent.getStringExtra("identificador");
             Toast.makeText(this, "Welcome " + first_name, Toast.LENGTH_LONG).show();
         }
 
@@ -136,9 +139,12 @@ public class Navigationdrawer extends AppCompatActivity
             getSupportActionBar().setTitle("Perfil");
 
         }else if (id == R.id.nav_gallery) {
-                fragment= new FragmentAhorrar();
-                FragmentoSeleccionado=true;
-                getSupportActionBar().setTitle("Empieza a ahorrar");
+
+            Bundle bundle = getIntent().getExtras();
+            String opcions=bundle.getString("identificador_boolean");
+            fragment= new FragmentAhorrar();
+            FragmentoSeleccionado=true;
+            getSupportActionBar().setTitle("Empieza a ahorrar");
 
         } else if (id == R.id.nav_slideshow) {
             fragment = new FragmentNuevoInforme();
