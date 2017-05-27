@@ -8,6 +8,7 @@ import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.os.Build.*;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -101,6 +102,7 @@ public class FragmentGastos extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_fragment_gastos, container, false);
+        final PreferenciasUsuario prefid= new PreferenciasUsuario(getActivity());
         inicializarComponentes(view);
         cambiar_letra();
 
@@ -118,6 +120,65 @@ public class FragmentGastos extends Fragment {
         boton_mas.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View v) {
+                if (validaciones(ed_cantidad)) {
+                    final int id_informe= prefid.cargar_idinforme();
+
+                    double cantidad= Double.parseDouble(ed_cantidad.getText().toString());
+                    String categoria= spinner_categoria.getSelectedItem().toString();
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+
+                        @Override
+                        public void onResponse(String response) {
+
+
+                            try {
+
+
+                                JSONObject jsonResponse = new JSONObject(response);
+                                boolean success = jsonResponse.getBoolean("success");
+
+
+                                if (success) {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                    builder.setMessage("Gasto registrado").show();
+
+                                   /*
+                                    String valor_id= String.valueOf(id_user);
+                                    boolean opcion=true;
+                                    String opcions=String.valueOf(opcion);
+                                    Intent i = new Intent(AgregarTarjeta.this, Navigationdrawer.class);
+
+
+                                    i.putExtra("identificador_id", valor_id);
+                                    i.putExtra("identificador_boolean",opcions);
+
+
+                                   startActivity(i);
+                                   */
+
+                                } else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                    builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+
+                            }
+
+                        }
+
+                    };
+
+
+                    GastosRequest registerRequest = new GastosRequest(categoria, cantidad, id_informe, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(registerRequest);
+
+
+                }
+
 
                 String nombre = spinner_categoria.getSelectedItem().toString();
                 String cantidad = ed_cantidad.getText().toString().trim();
@@ -147,53 +208,10 @@ public class FragmentGastos extends Fragment {
             @Override
             public void
             onClick(View v) {
-                String periodo= spinner_periodo.getSelectedItem().toString();
-                String cantidad= ed_cantidad.getText().toString();
-                String categoria= spinner_categoria.getSelectedItem().toString();
-                int contador=0;
-
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-
-
-                    @Override
-                    public void onResponse(String response) {
-
-
-                        try {
-
-
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
 
 
 
 
-                            if (success) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                                builder.setMessage("Se registró el gasto").setNegativeButton("Retry", null).create().show();
-
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                                builder.setMessage("No se registró el gasto").setNegativeButton("Retry", null).create().show();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-
-                        }
-
-                    }
-
-                };
-
-                if(is_empty()) {
-
-
-                   cantidad= cantidad.substring(contador_espacios_cantidad());
-
-                    GastosRequest registerRequest = new GastosRequest (periodo, categoria, cantidad, responseListener);
-                    RequestQueue queue = Volley.newRequestQueue(getActivity());
-                    queue.add(registerRequest);
-                }
                 /*
                 else {
                     Toast toast=Toast.makeText(getActivtiy (),"error in confirm password",Toast.LENGTH_SHORT);
@@ -270,33 +288,18 @@ public class FragmentGastos extends Fragment {
     }
 
 
-    public boolean is_empty()
+    public boolean validaciones(EditText ed_cantidad )
     {
+        boolean dato=true;
 
-        boolean no_vacio=true;
-
-        if(ed_cantidad.getText().toString().trim().length()==0)
-        {
-            no_vacio=false;
-            Toast.makeText(getActivity(), "Introduce una cantidad", Toast.LENGTH_SHORT).show();
-
-        }
-        return no_vacio;
-    }
-
-
-    public int contador_espacios_cantidad()
-    {
-        int contador=0;
-        for (int i=0;i<ed_cantidad.length();i++)
-        {
-            if (ed_cantidad.getText().toString().charAt(i)==' ')
+            if(ed_cantidad.getText().toString().trim().length()==0)
             {
+                dato=false;
+                Toast.makeText(getContext(), "No ingresaste una cantidad", Toast.LENGTH_SHORT).show();
 
-                contador++;
             }
-        }
-        return contador;
+
+        return dato;
     }
 
 
