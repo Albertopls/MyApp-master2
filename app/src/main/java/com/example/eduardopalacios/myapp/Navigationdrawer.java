@@ -43,11 +43,9 @@ public class Navigationdrawer extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        Intent intent2=getIntent();
-        String first_name2=intent2.getStringExtra("identificador");
-        String first_name= prefid.cargar_nombreusuario();
+        String first_name=prefid.cargar_nombreusuario();
 
-        if(first_name2==null)
+        if(first_name==null)
         {
 
         }
@@ -55,19 +53,14 @@ public class Navigationdrawer extends AppCompatActivity
         {
             if(cargar_falso()) {
 
-
-
                 Toast.makeText(this, "Welcome " + first_name, Toast.LENGTH_LONG).show();
-
-
             }
         }
 
 
         if(!cargar_falso())
         {
-            Intent intent = getIntent();
-           // String first_name = intent.getStringExtra("identificador");
+
             Toast.makeText(this, "Welcome " + first_name, Toast.LENGTH_LONG).show();
         }
 

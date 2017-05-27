@@ -78,6 +78,12 @@ public class FragmentPerfil extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment_perfil, container, false);
         inicializar_componentes(view);
 
+        //Nombre de usuario
+        final PreferenciasUsuario prefs_id= new PreferenciasUsuario(getActivity());
+        String nombre= prefs_id.cargar_nombreusuario();
+
+
+        textViewUsername.setText(nombre);
         String userName = textViewUsername.getText().toString();
         String userEmail = textViewUserEmail.getText().toString();
 
@@ -95,8 +101,8 @@ public class FragmentPerfil extends Fragment {
                     if (success){
                         String userName = jsonResponse.getString("first_name");
                         String userEmail = jsonResponse.getString("email");
-
-                        textViewUsername.setText(userName);
+                        String nombre= prefs_id.cargar_nombreusuario();
+                        textViewUsername.setText(nombre);
                         textViewUserEmail.setText(userEmail);
                     }
 
