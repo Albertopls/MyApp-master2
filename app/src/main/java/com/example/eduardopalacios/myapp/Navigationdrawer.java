@@ -156,6 +156,7 @@ public class Navigationdrawer extends AppCompatActivity
             getSupportActionBar().setTitle("Configuración");
 
         } else if (id == R.id.reg_tarjeta) {
+            /*
             Boolean opcion;
             Bundle bundle = getIntent().getExtras();
             String opcions=bundle.getString("identificador_boolean");
@@ -170,13 +171,13 @@ public class Navigationdrawer extends AppCompatActivity
                 valor_agregartarjeta ="true";
 
 
-
+*/
                 Intent i =new Intent(Navigationdrawer.this,AgregarTarjeta.class);
-                i.putExtra("ide",valor);
-                i.putExtra("boleano",valor_agregartarjeta);
+               // i.putExtra("ide",valor);
+                //i.putExtra("boleano",valor_agregartarjeta);
                 startActivity(i);
 
-
+/*
             }
             else {
 
@@ -190,7 +191,9 @@ public class Navigationdrawer extends AppCompatActivity
 
                 AgregarTarjeta agregar = new AgregarTarjeta();
                 agregar.setVisible(true);
+
             }
+            */
 
         } else if (id == R.id.nav_sign) {
 

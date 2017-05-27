@@ -25,7 +25,7 @@ import org.w3c.dom.Text;
 public class AgregarTarjeta extends AppCompatActivity {
 
     TextView titulo;
-
+    PreferenciasUsuario prefid= new PreferenciasUsuario(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +43,13 @@ public class AgregarTarjeta extends AppCompatActivity {
         final String[] datos={"Bancomer","City Banamex","HSBC","Banorte","ScotiaBank","Santander"};
 
         cambiar_letra();
+        /*
 
         final Bundle bundle = getIntent().getExtras();
         String valores = bundle.getString("ide");
         final String valor_2=bundle.getString("boleano");
 
+*/
         ArrayAdapter<String> adaptador=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,datos);
         lista.setAdapter(adaptador);
 
@@ -59,7 +61,8 @@ public class AgregarTarjeta extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (validaciones()) {
-
+                    final int id_user= prefid.cargar_userid();
+/*
                     boolean valor_nav;
                     valor_nav=Boolean.parseBoolean(valor_2);
                     String valor = null;
@@ -76,10 +79,10 @@ public class AgregarTarjeta extends AppCompatActivity {
 
                     }
 
-
+¨*/
                     int i = lista.getSelectedItemPosition();
                     String banco = datos[i];
-                    final int id_user = Integer.parseInt(valor);
+                    //final int id_user = Integer.parseInt(valor);
                     int cvp = Integer.parseInt(cvc.getText().toString());
                     String fecha1 = fecha.getText().toString();
                     double cantidad_tarjeta = Double.parseDouble(cantidad.getText().toString());
@@ -103,7 +106,7 @@ public class AgregarTarjeta extends AppCompatActivity {
                                     Intent intent = new Intent(AgregarTarjeta.this, Navigationdrawer.class);
                                     AgregarTarjeta.this.startActivity(intent);
 
-
+                                   /*
                                     String valor_id= String.valueOf(id_user);
                                     boolean opcion=true;
                                     String opcions=String.valueOf(opcion);
@@ -115,6 +118,7 @@ public class AgregarTarjeta extends AppCompatActivity {
 
 
                                    startActivity(i);
+                                   */
 
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(AgregarTarjeta.this);
