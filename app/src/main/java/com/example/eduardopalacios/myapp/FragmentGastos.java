@@ -52,7 +52,7 @@ public class FragmentGastos extends Fragment {
 
     EditText ed_cantidad;
 
-    TextView nuevo_informe;
+    TextView nuevo_informe, nombre_informe;
 
     Button boton_GuardarGasto, boton_mas;
 
@@ -106,8 +106,7 @@ public class FragmentGastos extends Fragment {
         inicializarComponentes(view);
         cambiar_letra();
 
-
-
+        nombre_informe.setText(prefid.cargar_nombre_informe());
         //Spinner categoria
 
         String contenido_categoria[]={"Entretenimiento", "Comida", "Trabajo", "Transporte", "Otros"};
@@ -279,6 +278,7 @@ public class FragmentGastos extends Fragment {
         lista_categoria= (ListView) view.findViewById(R.id.list_categoria);
         lista_cantidad= (ListView) view.findViewById(R.id.list_cantidad);
         nuevo_informe=(TextView) view.findViewById(R.id.text_nuevoinforme2);
+        nombre_informe=(TextView)view.findViewById(R.id.text_nombreinforme);
 
     }
     public void cambiar_letra(){
