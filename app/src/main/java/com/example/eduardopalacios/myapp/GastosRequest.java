@@ -21,7 +21,7 @@ public class GastosRequest extends StringRequest{
     private static final String GASTOS_REQUEST_URL ="https://bitchiest-core.000webhostapp.com/Gastos.php";
     private Map<String, String> params;
 
-    public GastosRequest(String categoria, double cantidad, int id_informe_gastos, Response.Listener<String>listener)
+    public GastosRequest(double cantidad,String categoria, int id_informe_gastos, Response.Listener<String>listener)
     {
         super(Request.Method.POST, GASTOS_REQUEST_URL,listener,null);
         params=new HashMap<>();

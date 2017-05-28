@@ -85,6 +85,10 @@ public class FragmentNuevoInforme extends Fragment {
         inicializar(view);
         final PreferenciasUsuario prefs_id= new PreferenciasUsuario(getActivity());
 
+
+
+
+
        boton_crearInforme.setOnClickListener(new View.OnClickListener(){
         @Override
         public void onClick(View view) {
@@ -128,6 +132,8 @@ public class FragmentNuevoInforme extends Fragment {
                                             if (success) {
                                                 String idinforme = jsonResponse.getString("id_Informe_gastos");
                                                 String nombre_informe_gastos = jsonResponse.getString("nombre_informe");
+
+
 
                                                 int id_informe=Integer.parseInt(idinforme);
                                                 prefs_id.escribePreferencia_idinforme(id_informe);

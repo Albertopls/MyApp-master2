@@ -106,7 +106,7 @@ public class FragmentGastos extends Fragment {
         inicializarComponentes(view);
         cambiar_letra();
 
-        nombre_informe.setText(prefid.cargar_nombre_informe());
+        nombre_informe.setText(prefid.cargar_idinforme());
         //Spinner categoria
 
         String contenido_categoria[]={"Entretenimiento", "Comida", "Trabajo", "Transporte", "Otros"};
@@ -171,7 +171,7 @@ public class FragmentGastos extends Fragment {
                     };
 
 
-                    GastosRequest registerRequest = new GastosRequest(categoria, cantidad, id_informe, responseListener);
+                    GastosRequest registerRequest = new GastosRequest(cantidad,categoria, id_informe, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(getContext());
                     queue.add(registerRequest);
 

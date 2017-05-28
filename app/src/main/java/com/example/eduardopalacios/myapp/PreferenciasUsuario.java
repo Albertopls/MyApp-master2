@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.Editable;
+import android.widget.Toast;
 
 /**
  * Created by Adriana on 30/10/2015.
@@ -19,7 +20,9 @@ public class PreferenciasUsuario {
     public boolean escribePreferencia_userid(int user_id){
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
         SharedPreferences.Editor editor=prefs.edit();
+
         try{
+
             editor.putInt("user_id", user_id);
             editor.apply();
             return true;
@@ -33,6 +36,8 @@ public class PreferenciasUsuario {
     public int cargar_userid() {
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
         int user_id = prefs.getInt("user_id", -1);
+
+
         return user_id;
     }
 
@@ -41,6 +46,7 @@ public class PreferenciasUsuario {
         SharedPreferences.Editor editor=prefs.edit();
         try{
             editor.putString("first_name", first_name);
+
             editor.apply();
             return true;
         }
