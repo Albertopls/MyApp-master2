@@ -21,6 +21,11 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -107,7 +112,7 @@ public class FragmentAhorrar extends Fragment {
 
         adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1);
         Spinner_cuenta.setAdapter(adapter);
-        webServiceREST();
+
 
 
     }
@@ -119,14 +124,13 @@ public class FragmentAhorrar extends Fragment {
         View view=inflater.inflate(R.layout.fragment_fragment_ahorrar, container, false);
         inicializar_componentes(view);
         prefs_id= new PreferenciasUsuario(this.getActivity());
-        int id_usuario= prefs_id.cargar_userid();
-
+        final int id_usuario= prefs_id.cargar_userid();
         //Spinners
 
 
 
-
-        String [] contenido_cargo={"1","2","3","6"};
+//
+                String [] contenido_cargo={"1","2","3","6"};
         adapter= new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, contenido_cargo);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         Spinner_cargo.setAdapter(adapter);
@@ -167,6 +171,58 @@ public class FragmentAhorrar extends Fragment {
                 }
 
                 Textview_cantidad.setText(""+cantidad);
+
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+
+                    @Override
+                    public void onResponse(String response) {
+                        boolean exito=false;
+                        String id = null;
+
+                        try {
+
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            JSONArray Cuenta_response = jsonResponse.getJSONArray("cuentas");
+
+                            for (int i = 0; i < 1; i++) {
+                                JSONObject c = Cuenta_response.getJSONObject(i);
+                                id = c.getString("numero_tarjeta");
+                            }
+
+                            Toast numero = Toast.makeText(getContext(),"ya",Toast.LENGTH_SHORT);
+                            numero.show();
+
+                                if (success) {
+
+
+                                  // Toast numero = Toast.makeText(getContext(),"ya",Toast.LENGTH_SHORT);
+                                    //numero.show();
+
+                                //String usuario_id = jsonResponse.getString("user_id");
+                                String numero_cuenta=jsonResponse.getString("numero_tarjeta");
+                               
+
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                builder.setMessage("Login Failed").setNegativeButton("Retry", null).create().show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                        }
+
+
+                    }
+
+                };
+
+
+                ConsultarCuentaRequest ConsultarCuentaRequest = new ConsultarCuentaRequest(id_usuario, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getContext());
+                queue.add(ConsultarCuentaRequest);
+
             }
         });
 
@@ -260,46 +316,9 @@ public class FragmentAhorrar extends Fragment {
         boton_guardar = (Button)view.findViewById(R.id.Button3);
     }
 
-    private void webServiceREST() {
-        try{
-            URL url = new URL("https://bitchiest-core.000webhostapp.com/ConsultarCuenta.php");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream())); //Leer lo que entre de informacion
-            String line = "";
-            String resultadoWebService = "";
-            while ((line = bufferedReader.readLine()) != null) {
-                resultadoWebService += line;
-            }
-            bufferedReader.close();
-            parseInformation(resultadoWebService);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    private void parseInformation(String resultadoJson) {
-        JSONArray jsonArray = null;
-        String cuenta, id_cuenta;
 
-        try {
-            jsonArray = new JSONArray(resultadoJson);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
-        for (int i = 0; i < jsonArray.length(); i++) {
-            try {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                //Dependen de como este configurado el servicio web
-                id_cuenta = jsonObject.getString("id_cuenta");
-                cuenta = jsonObject.getString("numero_tarjeta");
-                adapter.add("Clave: " + id_cuenta+ "\tNúmero: " + cuenta);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
 
 
 

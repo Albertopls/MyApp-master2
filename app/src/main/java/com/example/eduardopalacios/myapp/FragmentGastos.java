@@ -106,7 +106,7 @@ public class FragmentGastos extends Fragment {
         inicializarComponentes(view);
         cambiar_letra();
 
-        nombre_informe.setText(prefid.cargar_idinforme());
+        nombre_informe.setText(prefid.cargar_nombre_informe());
         //Spinner categoria
 
         String contenido_categoria[]={"Entretenimiento", "Comida", "Trabajo", "Transporte", "Otros"};

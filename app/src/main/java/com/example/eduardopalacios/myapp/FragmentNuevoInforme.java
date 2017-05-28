@@ -97,6 +97,8 @@ public class FragmentNuevoInforme extends Fragment {
             final String nombre= edit_nuevoinforme.getText().toString();
 
             if (validaciones(edit_nuevoinforme)) {
+                //Toast toast =Toast.makeText(getContext(),"entro",Toast.LENGTH_SHORT);
+                //toast.show();
 
                 final int user_id= prefs_id.cargar_userid();
 

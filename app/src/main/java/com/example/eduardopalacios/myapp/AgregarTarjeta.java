@@ -31,6 +31,7 @@ public class AgregarTarjeta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_tarjeta);
 
+
         titulo= (TextView)findViewById(R.id.text_nuevacuenta);
         final EditText num_tarjeta =(EditText)findViewById(R.id.edit_nombre);
         final EditText cvc=(EditText)findViewById(R.id.edit_pesos);
@@ -52,7 +53,6 @@ public class AgregarTarjeta extends AppCompatActivity {
 */
         ArrayAdapter<String> adaptador=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,datos);
         lista.setAdapter(adaptador);
-
 
 
 

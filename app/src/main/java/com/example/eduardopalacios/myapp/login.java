@@ -52,10 +52,6 @@ public class login extends AppCompatActivity {
             }
         });
 
-
-
-
-
         register_here.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)

@@ -2,6 +2,168 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\1cd204e2c9ef0703ea1d6e2422f4e802f90a5d72\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_276478cb4a8c949b26392c09de5444c1ad7b1544.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\d7b5ab3ab87533a9b1b46c04b174402b2bf113d0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_79e45381a16741eb027098c83adc56258a47a74f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\396e2e9eb73447ada2eaea71ee6f6330a3a94505\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_40529610b4db7b1db3404111d0d129f2b0843026.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\776d52ae34d4eac912c908ea26d9bac7e8f64548\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_9b40002a2c7efa0b75b7f7c31ee8e021522f2e61.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\8be1bda898d9c7db9fbf7c22daf1a68752d2ca22\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_dc4e6420868f2fd1fa9f4e00c036ad8414b53970.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\34c77c71c7108312e215d6ed45ab2d913e23180d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_bb8f08f7103077bd8a69eaa174eb6d8071dcb45a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\0091b9d964ff01b333af5ef65866523b8007b97a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_6dc39fa128d1dc12c1d9dabc9e2ce9c552bd6179.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\22b8cf1d30ac466d18223fcc2b89dfd1e8b758a5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_62425f62922278ce1cae0d3b7d04d4a1c0d5be3d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\cb5b58a1ca9042f1037c0cdf7e5a0486f224f4b5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_1c2c8a65db24db0c7328b35aae38d57d705a59a7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\ef2756b9888a3c45a12d29141ae77bdf0cdb8908\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_9b0486b3653651c2a411434ceb0c1cc9df1ad417.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\d3e4c6f11490c3bdb3aa5e6877448ab32b9dd1fc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_0823251f6aed01756f2a30fe4293198f68084198.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\2a25e5c19b21fd7096fbc17858e16e6ed8ecf9f5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e5553c3597d5f766a8364a49925fcbb304bb091b">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_6f29ba7d4d8714417039b10818ed3f8e55afe9a7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\ec6eb5a2bca4bfa9b6fea6741baefa5f9c1bb40b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_cf286613cf62f46bb1404a7923eda0d30698f2f5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\9f93d58b91d0ad0924bccc37ce7e71e534fd30ef\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_d3b312190a1dccf8ae2fd8a056360e7b491004db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\commons-io-2.4_b2955a73e8fdec69863902c786dced8321b28c5c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\6767614e7e74ebd6f4877b603884243ee8495c8d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_9ab1f9a4cfb38802b07c63203155f7ba4308eb79.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_dc441ad7367ab14c6c01be91e65b5a855f751b17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\d85748695178bc8bb89af1e3cda1ee2208e349a2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_cc5d70b8add617e4521ffb886ee2870eb4763101.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
@@ -9,6 +171,24 @@
         revision="25.0.2"
         sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
         <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_790e9c120d7eadd6d6040e354f7ad679b8371a5b\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\.android\build-cache\ec9ce0d818437ad6a22e414e2c9dad392ec1cbf1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\classes_8be8dbe112cde0f57bfd960b43dbbb5bdf84f5a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aidag\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\aidag\AndroidStudioProjects\MyApp-master2\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_019155613730be98c2d1e5ccaa4b0e4f5cf9af6b.jar" />
     </item>
     <item
         is-multidex="true"

@@ -171,10 +171,14 @@ public class Navigationdrawer extends AppCompatActivity
 
 
 */
-                Intent i =new Intent(Navigationdrawer.this,AgregarTarjeta.class);
+                //Intent i =new Intent(Navigationdrawer.this,AgregarTarjeta.class);
                // i.putExtra("ide",valor);
                 //i.putExtra("boleano",valor_agregartarjeta);
-                startActivity(i);
+                //startActivity(i);
+            fragment = new FragmentAgregarTarjeta();
+            FragmentoSeleccionado = true;
+            getSupportActionBar().setTitle("Registrar tarjeta");
+
 
 /*
             }
