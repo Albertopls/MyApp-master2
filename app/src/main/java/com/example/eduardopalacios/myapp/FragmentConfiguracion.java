@@ -51,46 +51,72 @@ public class FragmentConfiguracion extends Fragment {
 
         inicializar_componentes(view);
 
-        if(getColor() != getResources().getColor(R.color.colorPrimary)){
-            mToolbar.setBackgroundColor(getColor());
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                getActivity().getWindow().setStatusBarColor(getColor());
+        try {
+            if (getColor() != getResources().getColor(R.color.colorPrimary)) {
+                mToolbar.setBackgroundColor(getColor());
+                try {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        getActivity().getWindow().setStatusBarColor(getColor());
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
+
+            mRedColor.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View view) {
+                    mToolbar.setBackgroundColor(getResources().getColor(R.color.colorRed));
+                    try {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorRed));
+                        }
+                        storeColor(getResources().getColor(R.color.colorRed));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+
+            mBlueColor.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View view) {
+                    mToolbar.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+                    try {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorBlue));
+                        }
+                        storeColor(getResources().getColor(R.color.colorBlue));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+                }
+
+            });
+
+            mYellowColor.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View view) {
+                    mToolbar.setBackgroundColor(getResources().getColor(R.color.colorYellow));
+                    try {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorYellow));
+                        }
+                        storeColor(getResources().getColor(R.color.colorYellow));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
 
-        mRedColor.setOnClickListener(new View.OnClickListener(){
 
-            public void onClick(View view){
-                mToolbar.setBackgroundColor(getResources().getColor(R.color.colorRed));
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                    getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorRed));
-                }
-                storeColor(getResources().getColor(R.color.colorRed));
-            }
-        });
-
-        mBlueColor.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View view){
-                mToolbar.setBackgroundColor(getResources().getColor(R.color.colorBlue));
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                    getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorBlue));
-                }
-                storeColor(getResources().getColor(R.color.colorBlue));
-            }
-
-        });
-
-        mYellowColor.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View view){
-                mToolbar.setBackgroundColor(getResources().getColor(R.color.colorYellow));
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                    getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorYellow));
-                }
-                storeColor(getResources().getColor(R.color.colorYellow));
-            }
-        });
         return view;
     }
 

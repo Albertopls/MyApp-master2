@@ -94,6 +94,8 @@ public class login extends AppCompatActivity {
                             if (success) {
                                 String first_name = jsonResponse.getString("first_name");
                                 String usuario_id = jsonResponse.getString("user_id");
+                                String email = jsonResponse.getString("email");
+
 
                                 int id_usuario=Integer.parseInt(usuario_id);
                                 nombre[0] =first_name;
@@ -110,6 +112,7 @@ public class login extends AppCompatActivity {
 
                                 prefid.escribePreferencia_userid(id_usuario);
                                 prefid.escribePreferencia_nombreusuario(first_name);
+                                prefid.escribePreferencia_email(email);
 
 
 
