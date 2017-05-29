@@ -10,6 +10,7 @@ import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -62,7 +64,7 @@ public class FragmentAhorrar extends Fragment {
     //SPINNERS
     Spinner Spinner_cuenta, Spinner_cargo, Spinner_años;
 
-    ArrayAdapter <String> adapter;
+    ArrayAdapter<String> adapter;
 
     //BOTONES
     Button boton_guardar, button_calcular;
@@ -72,9 +74,10 @@ public class FragmentAhorrar extends Fragment {
     TextView Textview_cantidad;
 
     PreferenciasUsuario prefs_id;
+    Spinner spinner_cuentas;
+    List<String> cuentasBancarias = new ArrayList<String>();
 
     private OnFragmentInteractionListener mListener;
-
 
 
     public FragmentAhorrar() {
@@ -82,9 +85,9 @@ public class FragmentAhorrar extends Fragment {
     }
 
 
-
     // TODO: Rename and change types and number of parameters
-    public  FragmentAhorrar newInstance(String param1, String param2) {
+    public FragmentAhorrar newInstance(String param1, String param2) {
+
         FragmentAhorrar fragment = new FragmentAhorrar();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -103,7 +106,8 @@ public class FragmentAhorrar extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
+
+    }//Termina Oncreate
 
     @Override
     public void onStart() {
@@ -123,10 +127,81 @@ public class FragmentAhorrar extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_fragment_ahorrar, container, false);
         inicializar_componentes(view);
+        spinner_cuentas = (Spinner) view.findViewById(R.id.Spinner_cuenta);
         prefs_id= new PreferenciasUsuario(this.getActivity());
         final int id_usuario= prefs_id.cargar_userid();
         //Spinners
 
+        //Valores de cuenta
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+
+            @Override
+            public void onResponse(String response) {
+                boolean exito = false;
+                String id = null;
+
+                try {
+
+                    Log.e("TAG: json Response", response.toString());
+                    JSONObject jsonResponse = new JSONObject(response);
+                    //Toast numero3 = Toast.makeText(getContext(),"ya1",Toast.LENGTH_SHORT);
+                    //numero3.show();
+
+                    Log.e("TAG: json Response", jsonResponse.toString());
+
+                    JSONArray Cuenta_response = jsonResponse.getJSONArray("cuentas");
+                    Log.e("Arrays: ", Cuenta_response.toString());
+                    //Toast numero2 = Toast.makeText(getContext(),"ya2",Toast.LENGTH_SHORT);
+                    //numero2.show();
+
+                    for (int i = 0; i < Cuenta_response.length(); i++) {
+                        String a = Cuenta_response.get(i).toString();
+
+                        Log.e("Contador i", "" + i + " - ");
+                        if (a != null) {
+                            cuentasBancarias.add(a);
+                        }
+                    }
+
+                    Log.e("Tamanio lista", cuentasBancarias.size() + "");
+
+                    Log.e("Valor:", Cuenta_response.get(2).toString());
+
+                            /*for (int i = 0; Cuenta_response.length() < 1; i++) {
+                                JSONObject c = Cuenta_response.getJSONObject(i);
+                                //id = c.getString("numero_tarjeta");
+                            }
+
+                            Log.e("Array", Cuenta_response.toString());
+
+                            Toast numero = Toast.makeText(getContext(),"ya3",Toast.LENGTH_SHORT);
+                            numero.show();*/
+
+                            /*    if (success) {
+
+
+                                  // Toast numero = Toast.makeText(getContext(),"ya",Toast.LENGTH_SHORT);
+                                    //numero.show();
+
+                                //String usuario_id = jsonResponse.getString("user_id");
+                                String numero_cuenta=jsonResponse.getString("numero_tarjeta");
+
+
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                builder.setMessage("Login Failed").setNegativeButton("Retry", null).create().show();
+                            }*/
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                }
+            }
+        };//Termina de devolver valores
+
+        if (cuentasBancarias !=null && cuentasBancarias.size()>0){
+            ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(getActivity(),R.layout.row_spinner_cuentas, cuentasBancarias );
+        }
 
 
 //
@@ -179,44 +254,6 @@ public class FragmentAhorrar extends Fragment {
                     public void onResponse(String response) {
                         boolean exito=false;
                         String id = null;
-
-                        try {
-
-                            JSONObject jsonResponse = new JSONObject(response);
-                            Toast numero3 = Toast.makeText(getContext(),"ya1",Toast.LENGTH_SHORT);
-                            numero3.show();
-                            boolean success = jsonResponse.getBoolean("success");
-
-                            JSONArray Cuenta_response = jsonResponse.getJSONArray("cuentas");
-                            Toast numero2 = Toast.makeText(getContext(),"ya2",Toast.LENGTH_SHORT);
-                            numero2.show();
-
-                            for (int i = 0; Cuenta_response.length() < 1; i++) {
-                                JSONObject c = Cuenta_response.getJSONObject(i);
-                                id = c.getString("numero_tarjeta");
-                            }
-
-                            Toast numero = Toast.makeText(getContext(),"ya3",Toast.LENGTH_SHORT);
-                            numero.show();
-
-                                if (success) {
-
-
-                                  // Toast numero = Toast.makeText(getContext(),"ya",Toast.LENGTH_SHORT);
-                                    //numero.show();
-
-                                //String usuario_id = jsonResponse.getString("user_id");
-                                String numero_cuenta=jsonResponse.getString("numero_tarjeta");
-                               
-
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                builder.setMessage("Login Failed").setNegativeButton("Retry", null).create().show();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-
-                        }
 
 
                     }

@@ -45,6 +45,7 @@ public class FragmentAgregarTarjeta extends Fragment {
 
     TextView titulo;
     PreferenciasUsuario prefid;
+    Spinner spinner;
 
     private OnFragmentInteractionListener mListener;
 
