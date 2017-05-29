@@ -24,6 +24,15 @@
             android:layout_marginTop="15dp"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:text="1.-Elija la cuenta para hacer cargos del ahorro:"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:layout_gravity="center_vertical"
-                    android:text="Fijar meta"
+                    android:text="2. Fijar meta de ahorro"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
