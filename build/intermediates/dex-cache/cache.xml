@@ -3,21 +3,48 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Adriana\Desktop\MyApp-master2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Ely&apos;z\.android\build-cache\fe1cfbce3217a4c35b07fb8f26772eb34b916c6c\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="fa5a05ce43b3f87501ebe3472329f1157bcff813">
-        <dex dex="C:\Users\Adriana\Desktop\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0368208aaa9c18b63d0506264d859b04407959a9\classes.dex" />
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\Ely&apos;z\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_38f8b5be71fd5852bea3d4300f9a947672a45551\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Adriana\Desktop\MyApp-master2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Ely&apos;z\Documents\MyApp-master2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9a8ed39acfff939170fdf31a19d46a1a79a80d2c">
+        <dex dex="C:\Users\Ely&apos;z\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_050d5d19b1eacf71892f8a393a0a31f58687a176\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ely&apos;z\Documents\MyApp-master2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
-        <dex dex="C:\Users\Adriana\Desktop\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_60a6a915eae37c4174d9834a79dff60c9cdb44c5\classes.dex" />
+        <dex dex="C:\Users\Ely&apos;z\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ced3c74f5faf95fdff0a3259179d66d871b32aa8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ely&apos;z\.android\build-cache\876c55d35e7328c4e579b64a4fdd11ef12b7016d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\Ely&apos;z\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cca9d5e0a4da2e133a6f1cb410a190cda27c7b62\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ely&apos;z\.android\build-cache\9e2fb81fba299c0378bacfc8e0c3656c35c00710\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\Ely&apos;z\Documents\MyApp-master2\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1802e1377ef88e6f02bc207597941bdaef8bace1\classes.dex" />
     </item>
 
 </items>
