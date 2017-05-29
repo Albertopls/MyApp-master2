@@ -13,7 +13,7 @@
         <item
             android:id="@+id/reg_tarjeta"
             android:icon="@drawable/ic_call_to_action_black_24dp"
-            android:title="Registrar Tarjeta" />
+            android:title="Registrar tarjeta" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_slideshow"
@@ -25,7 +25,7 @@
         <item
             android:id="@+id/nav_informe_mis_gastos"
             android:icon="@drawable/ic_description_black_24dp"
-            android:title="Informe Mis gastos" />
+            android:title="Informe de mis gastos" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_settings_black_24dp"

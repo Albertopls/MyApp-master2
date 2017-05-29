@@ -61,9 +61,10 @@ android:background="@drawable/wall">
                 android:layout_height="match_parent"
                 android:layout_margin="15dp"
                 android:layout_weight="0.82"
-                android:text="¿realmente necesitas esa compra?"
-                android:textColor="#142b3b"
+                android:text="¿Realmente necesitas hacer esa compra?"
                 android:textSize="20sp"
+                android:textColor="#FFFFFF"
+
                 />
 
 

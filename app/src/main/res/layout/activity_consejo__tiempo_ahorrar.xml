@@ -59,9 +59,9 @@
                     android:layout_width="163dp"
                     android:id="@+id/title_consejo4"
                     android:layout_height="match_parent"
-                    android:layout_margin="15dp"
+                    android:layout_margin="20dp"
                     android:layout_weight="0.82"
-                    android:text="siempre estas a tiempo de ahorrar:"
+                    android:text="Siempre estas a tiempo de ahorrar."
                     android:textColor="#142b3b"
                     android:textSize="20sp"
                     />

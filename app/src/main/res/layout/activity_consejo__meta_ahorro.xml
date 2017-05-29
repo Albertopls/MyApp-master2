@@ -59,10 +59,10 @@
                     android:layout_width="163dp"
                     android:id="@+id/title_consejo3"
                     android:layout_height="match_parent"
-                    android:layout_margin="15dp"
+                    android:layout_margin="20dp"
                     android:layout_weight="0.82"
-                    android:text="se comprometido con tu meta de ahorro:"
-                    android:textColor="#142b3b"
+                    android:text="Sé comprometido con tu meta de ahorro."
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     />
 

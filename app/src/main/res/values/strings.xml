@@ -18,4 +18,9 @@
     <string name="color_amarillo">Color Amarillo</string>
 
 
+    <string name="date_label_set">Press the button to set the date</string>
+    <string name="date_button_set">Set Date</string>
+    <string name="date_view_set">The Date is: </string>
+    <string name="date_selected"></string>
+
 </resources>

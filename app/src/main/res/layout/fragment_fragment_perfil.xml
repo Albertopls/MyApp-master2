@@ -8,111 +8,122 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-        <RelativeLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/header_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="200dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/fondo" />
 
-            <ImageView
-                android:id="@+id/header_cover_image"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/fondo" />
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
+        </LinearLayout>
 
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
+        </LinearLayout>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_below="@+id/linearLayout"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="64dp"
-                android:src="@drawable/photo"
-                 />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="64dp"
+            android:src="@drawable/photo" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:textSize="20dp"
-                android:layout_below="@+id/profile_image"
-                android:layout_marginTop="55dp"
-                android:text="Nombre de Usuario"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/text_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Mi perfil"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_alignStart="@+id/profile_image" />
 
-            <TextView
-                android:id="@+id/textViewUsername"
-                android:text="Nombre de usuario"
-                android:textSize="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/profile_image"
+            android:layout_marginTop="55dp"
+            android:text="Nombre de Usuario"
+            android:textAlignment="center"
+            android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textViewUsername"
-                android:text="Correo Electronico"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/textViewUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView"
+            android:text="Nombre de usuario"
+            android:textAlignment="center"
+            android:textSize="15dp" />
 
-            <TextView
-                android:id="@+id/textViewUserEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView2"
-                android:text="Nombre de Usuario"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewUsername"
+            android:text="Correo Electronico"
+            android:textAlignment="center"
+            android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textViewUserEmail"
-                android:text="Numero de Tarjeta"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/textViewUserEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView2"
+            android:text="Nombre de Usuario"
+            android:textAlignment="center"
+            android:textSize="15dp" />
 
-            <TextView
-                android:id="@+id/textViewNumeroTarjeta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView10"
-                android:text="Numero de Tarjeta"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewUserEmail"
+            android:text="Numero de Tarjeta"
+            android:textAlignment="center"
+            android:textSize="20dp" />
 
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/textViewNumeroTarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView10"
+            android:text="Numero de Tarjeta"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
 </FrameLayout>

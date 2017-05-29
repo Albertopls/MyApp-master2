@@ -29,6 +29,7 @@
         <activity android:name=".Consejo_Compras" />
         <activity android:name=".Consejo_MetaAhorro" />
         <activity android:name=".Consejo_TiempoAhorrar" />
+        <activity android:name=".Un_informe_cerrado"></activity>
     </application>
 
 </manifest>
