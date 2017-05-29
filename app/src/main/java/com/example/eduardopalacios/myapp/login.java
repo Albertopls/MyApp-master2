@@ -1,5 +1,6 @@
 package com.example.eduardopalacios.myapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -75,6 +76,8 @@ public class login extends AppCompatActivity {
 
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
+                    ProgressDialog dialog = ProgressDialog.show(login.this, "",
+                            "Loading. Please wait...", true);
 
                     @Override
                     public void onResponse(String response) {
@@ -84,10 +87,14 @@ public class login extends AppCompatActivity {
 
 
                             JSONObject jsonResponse = new JSONObject(response);
+
                             boolean success = jsonResponse.getBoolean("success");
 
 
+
                             if (success) {
+
+
                                 String first_name = jsonResponse.getString("first_name");
                                 String usuario_id = jsonResponse.getString("user_id");
                                 String email = jsonResponse.getString("email");

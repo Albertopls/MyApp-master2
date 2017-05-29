@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Navigationdrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, VerInforme.OnFragmentInteractionListener, FragmentInicio.OnFragmentInteractionListener, FragmentNuevoInforme.OnFragmentInteractionListener, FragmentPerfil.OnFragmentInteractionListener, FragmentGastos.OnFragmentInteractionListener, FragmentAhorrar.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, FragmentAgregarTarjeta.OnFragmentInteractionListener, VerInforme.OnFragmentInteractionListener, FragmentInicio.OnFragmentInteractionListener, FragmentNuevoInforme.OnFragmentInteractionListener, FragmentPerfil.OnFragmentInteractionListener, FragmentGastos.OnFragmentInteractionListener, FragmentAhorrar.OnFragmentInteractionListener {
 
     PreferenciasUsuario prefid= new PreferenciasUsuario(this);
 

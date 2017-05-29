@@ -1,6 +1,8 @@
 package com.example.eduardopalacios.myapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.opengl.EGLDisplay;
@@ -104,6 +106,9 @@ public class FragmentNuevoInforme extends Fragment {
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
 
+                    ProgressDialog dialog = ProgressDialog.show(getContext(), "",
+                            "Loading. Please wait...", true);
+
 
                     @Override
                     public void onResponse(String response) {
@@ -111,12 +116,15 @@ public class FragmentNuevoInforme extends Fragment {
 
                         try {
 
-
                             JSONObject jsonResponse = new JSONObject(response);
+
                             boolean success = jsonResponse.getBoolean("success");
 
 
+
+
                             if (success) {
+                                dialog.dismiss();
 
                                 Response.Listener<String> responseListener = new Response.Listener<String>(){
 
@@ -146,7 +154,18 @@ public class FragmentNuevoInforme extends Fragment {
                                                 fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentGastos()).commit();
 
                                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                                builder.setMessage(" Informe  "+prefs_id.cargar_nombre_informe()+"  Creado").show();
+                                                builder.setMessage(" Informe  "+prefs_id.cargar_nombre_informe()+"  Creado");
+                                                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+
+                                                       dialog.dismiss();
+
+                                                    }
+                                                });
+                                                AlertDialog dialog=builder.create();
+                                                dialog.show();
+
 
 
                                             } else {

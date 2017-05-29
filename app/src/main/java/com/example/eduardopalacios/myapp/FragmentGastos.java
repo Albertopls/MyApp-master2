@@ -1,6 +1,8 @@
 package com.example.eduardopalacios.myapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -119,6 +121,7 @@ public class FragmentGastos extends Fragment {
         boton_mas.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View v) {
+
                 if (validaciones(ed_cantidad)) {
                     final int id_informe= prefid.cargar_idinforme();
 
@@ -126,7 +129,8 @@ public class FragmentGastos extends Fragment {
                     String categoria= spinner_categoria.getSelectedItem().toString();
 
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
-
+                        final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
+                                "Loading. Please wait...", true);
 
                         @Override
                         public void onResponse(String response) {
@@ -140,8 +144,37 @@ public class FragmentGastos extends Fragment {
 
 
                                 if (success) {
+                                    dialog.dismiss();
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                    builder.setMessage("Gasto registrado").show();
+                                    builder.setMessage("Gasto registrado");
+                                    builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                            dialog.dismiss();
+
+                                        }
+                                    });
+                                    AlertDialog dialog=builder.create();
+                                    dialog.show();
+                                    String nombre = spinner_categoria.getSelectedItem().toString();
+                                    String cantidad = ed_cantidad.getText().toString().trim();
+
+                                    contenido_lista_cantidad.add(cantidad);
+                                    contenido_lista_categoria.add(nombre);
+
+                                    adapterList_cantidad= new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista_cantidad);
+                                    lista_cantidad.setAdapter(adapterList_cantidad);
+
+                                    adapterList_categoria= new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista_categoria);
+                                    lista_categoria.setAdapter(adapterList_categoria);
+
+
+
+
+                                    ed_cantidad.setText("");
+                                    spinner_categoria.setId(0);
+
 
                                    /*
                                     String valor_id= String.valueOf(id_user);
@@ -179,23 +212,6 @@ public class FragmentGastos extends Fragment {
                 }
 
 
-                String nombre = spinner_categoria.getSelectedItem().toString();
-                String cantidad = ed_cantidad.getText().toString().trim();
-
-                contenido_lista_cantidad.add(cantidad);
-                contenido_lista_categoria.add(nombre);
-
-                adapterList_cantidad= new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista_cantidad);
-                lista_cantidad.setAdapter(adapterList_cantidad);
-
-                adapterList_categoria= new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista_categoria);
-                lista_categoria.setAdapter(adapterList_categoria);
-
-
-
-
-                ed_cantidad.setText("");
-                spinner_categoria.setId(0);
 
             }
                                               });

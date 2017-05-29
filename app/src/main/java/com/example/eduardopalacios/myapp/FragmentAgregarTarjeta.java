@@ -112,7 +112,7 @@ public class FragmentAgregarTarjeta extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (validaciones(v)) {
+                if (validaciones(num_tarjeta, cvc, fecha,cantidad) ) {
                     final int id_user= prefid.cargar_userid();
 /*
                     boolean valor_nav;
@@ -241,13 +241,9 @@ public class FragmentAgregarTarjeta extends Fragment {
     }
 
 
-    public boolean validaciones(View view)
+    public boolean validaciones(EditText num_tarjeta, EditText cvc, EditText fecha, EditText cantidad)
     {
         boolean dato=true;
-        EditText cvc=(EditText)view.findViewById(R.id.edit_pesos);
-        EditText fecha =(EditText)view.findViewById(R.id.edit_fecha);
-        EditText cantidad=(EditText)view.findViewById(R.id.edit_cantidad);
-        EditText num_tarjeta =(EditText)view.findViewById(R.id.edit_nombre);
 
         if(cvc.getText().toString().trim().length()==0  && fecha.getText().toString().trim().length()==0 && cantidad.getText().toString().trim().length()==0 &&num_tarjeta.getText().toString().trim().length()==0)
         {

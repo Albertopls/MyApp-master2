@@ -174,6 +174,7 @@ public class FragmentAhorrar extends Fragment {
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
 
+
                     @Override
                     public void onResponse(String response) {
                         boolean exito=false;
@@ -182,16 +183,20 @@ public class FragmentAhorrar extends Fragment {
                         try {
 
                             JSONObject jsonResponse = new JSONObject(response);
+                            Toast numero3 = Toast.makeText(getContext(),"ya1",Toast.LENGTH_SHORT);
+                            numero3.show();
                             boolean success = jsonResponse.getBoolean("success");
 
                             JSONArray Cuenta_response = jsonResponse.getJSONArray("cuentas");
+                            Toast numero2 = Toast.makeText(getContext(),"ya2",Toast.LENGTH_SHORT);
+                            numero2.show();
 
-                            for (int i = 0; i < 1; i++) {
+                            for (int i = 0; Cuenta_response.length() < 1; i++) {
                                 JSONObject c = Cuenta_response.getJSONObject(i);
                                 id = c.getString("numero_tarjeta");
                             }
 
-                            Toast numero = Toast.makeText(getContext(),"ya",Toast.LENGTH_SHORT);
+                            Toast numero = Toast.makeText(getContext(),"ya3",Toast.LENGTH_SHORT);
                             numero.show();
 
                                 if (success) {
