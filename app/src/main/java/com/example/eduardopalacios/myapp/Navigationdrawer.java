@@ -149,12 +149,13 @@ public class Navigationdrawer extends AppCompatActivity
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Ver Informe Gastos");
 
-        }else if(id== R.id.nav_manage){
+        }
+        /*else if(id== R.id.p){
             fragment = new FragmentConfiguracion();
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Configuración");
 
-        } else if (id == R.id.reg_tarjeta) {
+        } */ else if (id == R.id.reg_tarjeta) {
             /*
             Boolean opcion;
             Bundle bundle = getIntent().getExtras();

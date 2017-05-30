@@ -27,7 +27,7 @@ public class FragmentPerfil extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
 
-    private TextView textViewUsername, textViewUserEmail, textViewNumeroTarjeta;
+    private TextView textViewUsername, textViewUserEmail;
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -82,12 +82,10 @@ public class FragmentPerfil extends Fragment {
         final PreferenciasUsuario prefs_id= new PreferenciasUsuario(getActivity());
         String nombre= prefs_id.cargar_nombreusuario();
         String email = prefs_id.cargar_email();
-        String numero_tarjeta = prefs_id.cargar_numTarjeta();
 
 
         textViewUsername.setText(nombre);
         textViewUserEmail.setText(email);
-        textViewNumeroTarjeta.setText(numero_tarjeta);
 
         Response.Listener<String> responseListener = new Response.Listener<String>(){
 
@@ -103,10 +101,8 @@ public class FragmentPerfil extends Fragment {
                     if (success){
                         String nombre= prefs_id.cargar_nombreusuario();
                         String email = prefs_id.cargar_email();
-                        String numero_tarjeta = prefs_id.cargar_numTarjeta();
                         textViewUsername.setText(nombre);
                         textViewUserEmail.setText(email);
-                        textViewNumeroTarjeta.setText(numero_tarjeta);
                     }
 
                 } catch (JSONException e) {
@@ -167,6 +163,5 @@ public class FragmentPerfil extends Fragment {
     public void inicializar_componentes(View view){
         textViewUsername = (TextView) view.findViewById(R.id.textViewUsername);
         textViewUserEmail = (TextView) view.findViewById(R.id.textViewUserEmail);
-        textViewNumeroTarjeta = (TextView) view.findViewById(R.id.textViewNumeroTarjeta);
     }
 }
