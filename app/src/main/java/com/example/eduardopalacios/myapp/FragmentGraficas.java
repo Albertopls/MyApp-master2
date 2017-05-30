@@ -10,7 +10,7 @@ import android.widget.Button;
  * Created by Ely'z on 29/05/2017.
  */
 
-public class FragmentGraficas extends AppCompatActivity {
+public class FragmentGraficas extends  {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
