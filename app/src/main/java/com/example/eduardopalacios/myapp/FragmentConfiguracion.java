@@ -1,6 +1,7 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -22,7 +24,7 @@ public class FragmentConfiguracion extends Fragment {
     Button mRedColor;
     Button mBlueColor;
     Button mYellowColor;
-
+    TextView textView_color;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +127,15 @@ public class FragmentConfiguracion extends Fragment {
         mRedColor = (Button) view.findViewById(R.id.btnred);
         mBlueColor = (Button) view.findViewById(R.id.btnblue);
         mYellowColor = (Button) view.findViewById(R.id.btnyellow);
-    }
+        textView_color= (TextView)view.findViewById(R.id.textView_color);
 
+    }
+    //Cambio de letra
+    public void cambiar_letra(){
+        Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");
+
+        textView_color.setTypeface(face);
+
+    }
 
 }

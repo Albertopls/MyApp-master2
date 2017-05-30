@@ -57,7 +57,8 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Número de tarjeta"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="16"/>
 
 
             </LinearLayout>
@@ -78,7 +79,7 @@
                     android:ems="10"
                     android:hint="CVC"
                     android:inputType="number"
-                    android:maxLength="4" />
+                    android:maxLength="3" />
 
 
             </LinearLayout>

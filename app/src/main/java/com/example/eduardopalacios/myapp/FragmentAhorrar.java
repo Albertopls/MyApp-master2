@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -72,7 +73,7 @@ public class FragmentAhorrar extends Fragment {
     EditText Edittext_meta;
     //TextView
     TextView Textview_cantidad;
-
+    TextView textView_titulo_ahorrar;
     PreferenciasUsuario prefs_id;
     Spinner spinner_cuentas;
     List<String> cuentasBancarias = new ArrayList<String>();
@@ -114,8 +115,6 @@ public class FragmentAhorrar extends Fragment {
         super.onStart();
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 
-        adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1);
-        Spinner_cuenta.setAdapter(adapter);
 
 
 
@@ -138,6 +137,9 @@ public class FragmentAhorrar extends Fragment {
 
             @Override
             public void onResponse(String response) {
+                Toast numero2 = Toast.makeText(getContext(),"ya8",Toast.LENGTH_SHORT);
+                numero2.show();
+
                 boolean exito = false;
                 String id = null;
 
@@ -145,15 +147,15 @@ public class FragmentAhorrar extends Fragment {
 
                     Log.e("TAG: json Response", response.toString());
                     JSONObject jsonResponse = new JSONObject(response);
-                    //Toast numero3 = Toast.makeText(getContext(),"ya1",Toast.LENGTH_SHORT);
-                    //numero3.show();
+                    Toast numero3 = Toast.makeText(getContext(),"ya1",Toast.LENGTH_SHORT);
+                    numero3.show();
 
                     Log.e("TAG: json Response", jsonResponse.toString());
 
                     JSONArray Cuenta_response = jsonResponse.getJSONArray("cuentas");
                     Log.e("Arrays: ", Cuenta_response.toString());
-                    //Toast numero2 = Toast.makeText(getContext(),"ya2",Toast.LENGTH_SHORT);
-                    //numero2.show();
+                    Toast numero8 = Toast.makeText(getContext(),"ya2",Toast.LENGTH_SHORT);
+                    numero8.show();
 
                     for (int i = 0; i < Cuenta_response.length(); i++) {
                         String a = Cuenta_response.get(i).toString();
@@ -165,8 +167,8 @@ public class FragmentAhorrar extends Fragment {
                     }
 
                     Log.e("Tamanio lista", cuentasBancarias.size() + "");
-
-                    Log.e("Valor:", Cuenta_response.get(2).toString());
+                    Log.e("Array", Cuenta_response.toString());
+                    //Log.e("Valor:", Cuenta_response.get(2).toString());
 
                             /*for (int i = 0; Cuenta_response.length() < 1; i++) {
                                 JSONObject c = Cuenta_response.getJSONObject(i);
@@ -174,9 +176,9 @@ public class FragmentAhorrar extends Fragment {
                             }
 
                             Log.e("Array", Cuenta_response.toString());
-
+*/
                             Toast numero = Toast.makeText(getContext(),"ya3",Toast.LENGTH_SHORT);
-                            numero.show();*/
+                            numero.show();
 
                             /*    if (success) {
 
@@ -198,14 +200,26 @@ public class FragmentAhorrar extends Fragment {
                 }
             }
         };//Termina de devolver valores
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage("Login Failed").setNegativeButton("Retry", null).create().show();
 
-        if (cuentasBancarias !=null && cuentasBancarias.size()>0){
-            ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(getActivity(),R.layout.row_spinner_cuentas, cuentasBancarias );
-        }
+
+        /*if (cuentasBancarias !=null && cuentasBancarias.size()>0){
+            ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(this.getActivity(),R.layout.row_spinner_cuentas, cuentasBancarias );
+            Array_cuentas.setDropDownViewResource(R.layout.row_spinner_cuentas);
+            spinner_cuentas.setAdapter(Array_cuentas);*/
+            cuentasBancarias.add("12");
+            ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, cuentasBancarias );
+            Array_cuentas.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+            spinner_cuentas.setAdapter(Array_cuentas);
+            AlertDialog.Builder bui = new AlertDialog.Builder(getContext());
+            bui.setMessage("Array").setNegativeButton("Retry", null).create().show();
+
+        //}
 
 
 //
-                String [] contenido_cargo={"1","2","3","6"};
+        String [] contenido_cargo={"1","2","3","6"};
         adapter= new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, contenido_cargo);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         Spinner_cargo.setAdapter(adapter);
@@ -245,7 +259,7 @@ public class FragmentAhorrar extends Fragment {
                         break;
                 }
 
-                Textview_cantidad.setText(""+cantidad);
+                Textview_cantidad.setText("$ "+cantidad);
 
                 Response.Listener<String> responseListener = new Response.Listener<String>(){
 
@@ -349,7 +363,7 @@ public class FragmentAhorrar extends Fragment {
 
 
     public void inicializar_componentes(View view){
-        Spinner_cuenta= (Spinner)view.findViewById(R.id.Spinner_cuenta);
+        textView_titulo_ahorrar = (TextView)view.findViewById(R.id.textView_titulo_ahorrar);
         Spinner_cargo= (Spinner)view.findViewById(R.id.Spinner_cargo);
         Spinner_años= (Spinner)view.findViewById(R.id.Spinner_años);
         Edittext_meta=(EditText)view.findViewById(R.id.editText_meta);
@@ -359,6 +373,12 @@ public class FragmentAhorrar extends Fragment {
     }
 
 
+    public void cambiar_letra(){
+        Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");
+
+        textView_titulo_ahorrar.setTypeface(face);
+
+    }
 
 
 

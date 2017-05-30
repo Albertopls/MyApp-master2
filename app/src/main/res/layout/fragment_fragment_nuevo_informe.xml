@@ -65,7 +65,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:ems="10"
-                    android:hint="Nombre informe" />
+                    android:hint="Nombre informe"
+                    android:maxLength="20"/>
 
             </LinearLayout>
 
