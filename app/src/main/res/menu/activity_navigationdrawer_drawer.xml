@@ -33,12 +33,12 @@
 
     </group>
 
-    <item android:title="Sign">
+    <item android:title="Sesión">
         <menu>
             <item
                 android:id="@+id/nav_sign"
-                android:icon="@android:drawable/ic_lock_power_off"
-                android:title="Sign out" />
+                android:icon="@drawable/ic_power_settings_new_black_24dp"
+                android:title="Salir" />
 
         </menu>
     </item>

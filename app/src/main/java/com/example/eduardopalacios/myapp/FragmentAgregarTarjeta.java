@@ -1,18 +1,20 @@
 package com.example.eduardopalacios.myapp;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,7 +30,7 @@ import org.json.JSONObject;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FragmentAgregarTarjeta.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link FragmentAgregarTarjeta#newInstance} factory method to
  * create an instance of this fragment.
@@ -43,25 +45,18 @@ public class FragmentAgregarTarjeta extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    private int año, mes, dia;
+    private EditText date_fecha;
+    private static final int tipo_Dialog=0;
+    private static DatePickerDialog.OnDateSetListener oyenteSelectorFecha;
     TextView titulo;
     PreferenciasUsuario prefid;
     Spinner spinner;
-
     private OnFragmentInteractionListener mListener;
 
     public FragmentAgregarTarjeta() {
-        // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentAgregarTarjeta.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FragmentAgregarTarjeta newInstance(String param1, String param2) {
         FragmentAgregarTarjeta fragment = new FragmentAgregarTarjeta();
         Bundle args = new Bundle();
@@ -80,15 +75,26 @@ public class FragmentAgregarTarjeta extends Fragment {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.activity_agregar_tarjeta, container, false);
-        prefid= new PreferenciasUsuario(getActivity());
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.activity_agregar_tarjeta, container, false);
+        prefid = new PreferenciasUsuario(getActivity());
+        //
+        /*Calendar calendario = Calendar.getInstance();
+        año = calendario.get(Calendar.YEAR);
+        mes = calendario.get(Calendar.MONTH)+1;
+        dia = calendario.get(Calendar.DAY_OF_MONTH);
+        mostrarFecha(año, mes, dia);
+
+*/
+
         titulo= (TextView)view.findViewById(R.id.text_nuevacuenta);
         final EditText num_tarjeta =(EditText)view.findViewById(R.id.edit_nombre);
         final EditText cvc=(EditText)view.findViewById(R.id.edit_pesos);
-        final EditText fecha =(EditText)view.findViewById(R.id.edit_fecha);
+        final EditText date_fecha = (EditText) view.findViewById(R.id.editText_date);
+        //date_fecha.setOnClickListener((View.OnClickListener) this);
         final EditText cantidad=(EditText)view.findViewById(R.id.edit_cantidad);
 
 
@@ -96,24 +102,30 @@ public class FragmentAgregarTarjeta extends Fragment {
         final Spinner lista=(Spinner)view.findViewById(R.id.spiner_fecha);
         final String[] datos={"Bancomer","City Banamex","HSBC","Banorte","ScotiaBank","Santander"};
 
+
+        date_fecha.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.editText_date:
+                        showDatePickerDialog(date_fecha);
+                        break;
+                }
+            }
+        });
+
+
+
         cambiar_letra();
-        /*
-
-        final Bundle bundle = getIntent().getExtras();
-        String valores = bundle.getString("ide");
-        final String valor_2=bundle.getString("boleano");
-
-*/
         ArrayAdapter<String> adaptador=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_dropdown_item,datos);
         lista.setAdapter(adaptador);
-
-
 
         btnaceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (validaciones(num_tarjeta, cvc, fecha,cantidad) ) {
+                if (validaciones(num_tarjeta, cvc, date_fecha,cantidad) ) {
                     final int id_user= prefid.cargar_userid();
 /*
                     boolean valor_nav;
@@ -137,7 +149,7 @@ public class FragmentAgregarTarjeta extends Fragment {
                     String banco = datos[i];
                     //final int id_user = Integer.parseInt(valor);
                     int cvp = Integer.parseInt(cvc.getText().toString());
-                    String fecha1 = fecha.getText().toString();
+                    String fecha1 = date_fecha.getText().toString();
                     double cantidad_tarjeta = Double.parseDouble(cantidad.getText().toString());
                     int numero_tarjeta=Integer.parseInt(num_tarjeta.getText().toString());
 
@@ -203,6 +215,8 @@ public class FragmentAgregarTarjeta extends Fragment {
 
         return view;
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -288,6 +302,34 @@ public class FragmentAgregarTarjeta extends Fragment {
         return dato;
     }
 
+
+
+//al dar click en el text view
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.editText_date:
+                showDatePickerDialog(date_fecha);
+                break;
+        }
+    }
+//mostrar dialogo
+    private void showDatePickerDialog(final EditText editText_date) {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because january is zero
+                final String selectedDate = twoDigits(day) + " / " + twoDigits(month+1) + " / " + year;
+                editText_date.setText(selectedDate);
+            }
+        });
+        newFragment.show(getActivity().getSupportFragmentManager(), "datePicker");
+    }
+
+
+    private String twoDigits(int n) {
+        return (n<=9) ? ("0"+n) : String.valueOf(n);
+    }
 
     public void cambiar_letra(){
         Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");

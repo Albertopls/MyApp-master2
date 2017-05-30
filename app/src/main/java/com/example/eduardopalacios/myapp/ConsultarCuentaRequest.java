@@ -1,6 +1,5 @@
 package com.example.eduardopalacios.myapp;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
@@ -18,7 +17,7 @@ public class ConsultarCuentaRequest extends StringRequest {
 
     public ConsultarCuentaRequest(int id_usuario, Response.Listener<String>listener)
     {
-        super(Request.Method.POST,LOGIN_REQUEST_URL,listener,null);
+        super(Method.POST,LOGIN_REQUEST_URL,listener,null);
         params=new HashMap<>();
         params.put("user_user_id", id_usuario+"");
 

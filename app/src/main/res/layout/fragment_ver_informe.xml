@@ -52,7 +52,7 @@
                         android:textColor="#FFFFFF"
                         android:textSize="32sp"
                         android:textStyle="bold"
-                        android:text="Informes cerrados de mis gastos:"
+                        android:text="Informes cerrados    Mis gastos:"
                          />
 
                     <LinearLayout
@@ -83,10 +83,10 @@
                     android:weightSum="1">
                     <TextView
                         android:id="@+id/textView7"
-                        android:layout_width="wrap_content"
+                        android:layout_width="81dp"
                         android:layout_height="32dp"
                         android:layout_gravity="center_vertical"
-                        android:text="Detalle informe"
+                        android:text="Informe"
                         android:textColor="#FFFFFF"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -94,7 +94,7 @@
                     <Spinner
                         android:id="@+id/Spinner_informe"
                         style="@style/Spinner_style"
-                        android:layout_width="163dp"
+                        android:layout_width="217dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp" />
 
@@ -103,20 +103,71 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/Btnguardar"
-                            android:layout_width="108dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignEnd="@+id/scrollView2"
-                            android:layout_below="@+id/scrollView2"
-                            android:layout_marginLeft="50dp"
-                            android:layout_marginTop="45dp"
-                            android:background="@drawable/button_submit"
-                            android:layout_gravity="center"
-                            android:text="OK"
-                            android:textColor="#FFFFFF"
-                            android:textSize="30sp" />
                     </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+
+                        <LinearLayout
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Cantidad"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <ListView
+                                android:id="@+id/list_cantidad"
+                                android:layout_width="match_parent"
+                                android:layout_height="202dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Categoria"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <ListView
+                                android:id="@+id/list_categoria"
+                                android:layout_width="match_parent"
+                                android:layout_height="13dp"
+                                android:layout_weight="0.47" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>

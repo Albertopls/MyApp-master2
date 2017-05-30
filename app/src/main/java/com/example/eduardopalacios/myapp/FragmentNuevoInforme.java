@@ -3,9 +3,7 @@ package com.example.eduardopalacios.myapp;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.net.Uri;
-import android.opengl.EGLDisplay;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -43,7 +41,7 @@ public class FragmentNuevoInforme extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button boton_crearInforme;
+    Button boton_crearInforme,button_editar;
 
     EditText edit_nuevoinforme;
 
@@ -107,7 +105,7 @@ public class FragmentNuevoInforme extends Fragment {
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
 
                     ProgressDialog dialog = ProgressDialog.show(getContext(), "",
-                            "Loading. Please wait...", true);
+                            "Start Saving esta creando informe...", true);
 
 
                     @Override
@@ -219,8 +217,21 @@ public class FragmentNuevoInforme extends Fragment {
 
 
         }
-    });
+    }); //Termina boton crear informe
 
+        //Boton editar informe
+        button_editar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                //Consultar informe
+
+
+                FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                 fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentGastos()).commit();
+
+
+                                            }
+                                    });//Termina boton editar informe
 
         return view ;
     }
@@ -267,6 +278,7 @@ public class FragmentNuevoInforme extends Fragment {
 
     public void inicializar(View view){
         boton_crearInforme=(Button)view.findViewById(R.id.Button_nuevoinforme);
+        button_editar= (Button) view.findViewById(R.id.button_editar);
         edit_nuevoinforme=(EditText)view.findViewById(R.id.edit_nuevo_informe);
     }
 
@@ -279,7 +291,7 @@ public class FragmentNuevoInforme extends Fragment {
             if(nombre_informe.getText().toString().trim().length()==0)
             {
                 dato=false;
-                Toast.makeText(getContext(), "You did not enter a name", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Se necesita un nombre de informe", Toast.LENGTH_SHORT).show();
 
             }
 

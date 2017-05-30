@@ -1,35 +1,18 @@
 package com.example.eduardopalacios.myapp;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewCompat;
-import android.transition.TransitionInflater;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 
 /**
@@ -213,6 +196,7 @@ public class FragmentInicio extends Fragment {
         consejo2.setTypeface(face_consejo);
         consejo3.setTypeface(face_consejo);
         consejo4.setTypeface(face_consejo);
+
     }
 
 }

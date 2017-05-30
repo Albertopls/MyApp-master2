@@ -1,10 +1,7 @@
 package com.example.eduardopalacios.myapp;
 
-import android.text.Editable;
-
-import com.android.volley.Request;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +17,7 @@ public class TarjetaRequest extends StringRequest{
 
     public TarjetaRequest(String  banco, int cvc, String fecha_vigencia, double cantidad_tarjeta,int numero_tarjeta, int valor, Response.Listener<String>listener)
     {
-        super(Request.Method.POST,REGISTER_REQUEST_URL,listener,null);
+        super(Method.POST,REGISTER_REQUEST_URL,listener,null);
         params=new HashMap<>();
         params.put("banco", banco);
         params.put("cvp", cvc+"");

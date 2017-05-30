@@ -2,9 +2,9 @@ package com.example.eduardopalacios.myapp;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +17,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class Register_Activity extends AppCompatActivity  {
     TextView Signup;
@@ -149,33 +148,33 @@ public class Register_Activity extends AppCompatActivity  {
         if(first_n.getText().toString().trim().length()==0)
         {
             no_vacio=false;
-            Toast.makeText(this, "You did not enter a first name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingrese al menos un nombre", Toast.LENGTH_SHORT).show();
 
         }
 
         if(last_n.getText().toString().trim().length()==0)
         {
             no_vacio=false;
-            Toast.makeText(this, "You did not enter a last name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingrese al menos un apellido", Toast.LENGTH_SHORT).show();
         }
 
         if(emaiil.getText().toString().trim().length()==0)
         {
             no_vacio=false;
-            Toast.makeText(this, "You did not enter an email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Es obligatorio ingresar correo electrónico", Toast.LENGTH_SHORT).show();
         }
 
 
         if(password_register.getText().toString().trim().length()==0)
         {
             no_vacio=false;
-            Toast.makeText(this, "You did not enter a password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Es obligatorio ingresar contraseña", Toast.LENGTH_SHORT).show();
         }
 
         if(confrim_password.getText().toString().trim().length()==0)
         {
             no_vacio=false;
-            Toast.makeText(this, "You did not enter a confrim password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Es obligatorio confirmar la contraseña", Toast.LENGTH_SHORT).show();
         }
 
 

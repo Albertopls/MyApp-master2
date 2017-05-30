@@ -1,11 +1,8 @@
 package com.example.eduardopalacios.myapp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.text.Editable;
-import android.widget.Toast;
 
 /**
  * Created by Adriana on 30/10/2015.
@@ -41,6 +38,29 @@ public class PreferenciasUsuario {
         return user_id;
     }
 
+    public boolean escribePreferencia_user_user_id(int user_user_id){
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        SharedPreferences.Editor editor=prefs.edit();
+
+        try{
+
+            editor.putInt("user_user_id", user_user_id);
+            editor.apply();
+            return true;
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    public int cargar_user_user_id() {
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        int user_user_id = prefs.getInt("user_user_id", -1);
+
+
+        return user_user_id;
+    }
 
     public boolean escribePreferencia_nombreusuario(String first_name){
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
@@ -71,6 +91,20 @@ public class PreferenciasUsuario {
         }
     }
 
+    public boolean escribePreferencia_numTarjeta(String numero_tarjeta){
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        SharedPreferences.Editor editor=prefs.edit();
+        try{
+            editor.putString("numero_tarjeta", numero_tarjeta);
+
+            editor.apply();
+            return true;
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+    }
 
     public String cargar_nombreusuario() {
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
@@ -82,6 +116,12 @@ public class PreferenciasUsuario {
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
         String email = prefs.getString("email", "");
         return email;
+    }
+
+    public String cargar_numTarjeta() {
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        String numero_tarjeta = prefs.getString("numero_tarjeta", "");
+        return numero_tarjeta;
     }
 
 

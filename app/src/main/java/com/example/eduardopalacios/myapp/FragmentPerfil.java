@@ -1,9 +1,12 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +31,7 @@ public class FragmentPerfil extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
 
     private TextView textViewUsername, textViewUserEmail;
+    public static final String TAG="THEMES";
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -113,9 +117,29 @@ public class FragmentPerfil extends Fragment {
         };
         // Cambiar de letra el titulo
 
-
-
         return view;
+    }
+
+    public void onResume(){
+        super.onResume();
+        Log.i(TAG, "onResume()");
+        toggleTheme();
+    }
+
+    private void toggleTheme() {
+
+        // Following options to change the Theme must precede setContentView().
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        String myName = sharedPref.getString("edittext_preference", "");
+
+
+        // Convert name to all upper case if that preference checked
+        String temp = "Hello " + myName;
+        if (textViewUsername != null) textViewUsername.setText(temp);
+
+        Log.i(TAG, "MainActivity:  Name=" + myName);
     }
 
 

@@ -3,11 +3,9 @@ package com.example.eduardopalacios.myapp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,14 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -54,7 +46,7 @@ public class Navigationdrawer extends AppCompatActivity
         {
             if(cargar_falso()) {
 
-                Toast.makeText(this, "Welcome " + first_name, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Bienvenido " + first_name, Toast.LENGTH_LONG).show();
             }
         }
 
@@ -62,7 +54,7 @@ public class Navigationdrawer extends AppCompatActivity
         if(!cargar_falso())
         {
 
-            Toast.makeText(this, "Welcome " + first_name, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Bienvenido " + first_name, Toast.LENGTH_LONG).show();
         }
 
 
@@ -132,8 +124,7 @@ public class Navigationdrawer extends AppCompatActivity
 
         }else if (id == R.id.nav_gallery) {
 
-            Bundle bundle = getIntent().getExtras();
-            String opcions=bundle.getString("identificador_boolean");
+
             fragment= new FragmentAhorrar();
             FragmentoSeleccionado=true;
             getSupportActionBar().setTitle("Empieza a ahorrar");
@@ -149,13 +140,12 @@ public class Navigationdrawer extends AppCompatActivity
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Ver Informe Gastos");
 
-        }
-        /*else if(id== R.id.p){
-            fragment = new FragmentConfiguracion();
+        }else if(id== R.id.nav_manage){
+            Navigationdrawer.this.startActivity(new Intent(Navigationdrawer.this, FragmentConfiguracion.class));
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Configuración");
 
-        } */ else if (id == R.id.reg_tarjeta) {
+        } else if (id == R.id.reg_tarjeta) {
             /*
             Boolean opcion;
             Bundle bundle = getIntent().getExtras();
@@ -204,6 +194,7 @@ public class Navigationdrawer extends AppCompatActivity
             String cadena;
             Navigationdrawer.this.startActivity(new Intent(Navigationdrawer.this, login.class));
             Navigationdrawer.this.finish();
+            prefid.escribePreferencia_userid(0);
             String opcion = "false";
             try {
 

@@ -1,8 +1,8 @@
 package com.example.eduardopalacios.myapp;
 
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class Consejo_Tarjetas extends AppCompatActivity {

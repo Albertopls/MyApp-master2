@@ -1,27 +1,19 @@
 package com.example.eduardopalacios.myapp;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,14 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 
 /**
@@ -69,6 +55,7 @@ public class FragmentAhorrar extends Fragment {
 
     //BOTONES
     Button boton_guardar, button_calcular;
+    Button button_llenar;
     //EditText
     EditText Edittext_meta;
     //TextView
@@ -77,6 +64,7 @@ public class FragmentAhorrar extends Fragment {
     PreferenciasUsuario prefs_id;
     Spinner spinner_cuentas;
     List<String> cuentasBancarias = new ArrayList<String>();
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -127,101 +115,12 @@ public class FragmentAhorrar extends Fragment {
         View view=inflater.inflate(R.layout.fragment_fragment_ahorrar, container, false);
         inicializar_componentes(view);
         spinner_cuentas = (Spinner) view.findViewById(R.id.Spinner_cuenta);
+        button_llenar= (Button) view.findViewById(R.id.button_llenar);
         prefs_id= new PreferenciasUsuario(this.getActivity());
         final int id_usuario= prefs_id.cargar_userid();
-        //Spinners
-
-        //Valores de cuenta
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
 
 
-            @Override
-            public void onResponse(String response) {
-                Toast numero2 = Toast.makeText(getContext(),"ya8",Toast.LENGTH_SHORT);
-                numero2.show();
 
-                boolean exito = false;
-                String id = null;
-
-                try {
-
-                    Log.e("TAG: json Response", response.toString());
-                    JSONObject jsonResponse = new JSONObject(response);
-                    Toast numero3 = Toast.makeText(getContext(),"ya1",Toast.LENGTH_SHORT);
-                    numero3.show();
-
-                    Log.e("TAG: json Response", jsonResponse.toString());
-
-                    JSONArray Cuenta_response = jsonResponse.getJSONArray("cuentas");
-                    Log.e("Arrays: ", Cuenta_response.toString());
-                    Toast numero8 = Toast.makeText(getContext(),"ya2",Toast.LENGTH_SHORT);
-                    numero8.show();
-
-                    for (int i = 0; i < Cuenta_response.length(); i++) {
-                        String a = Cuenta_response.get(i).toString();
-
-                        Log.e("Contador i", "" + i + " - ");
-                        if (a != null) {
-                            cuentasBancarias.add(a);
-                        }
-                    }
-
-                    Log.e("Tamanio lista", cuentasBancarias.size() + "");
-                    Log.e("Array", Cuenta_response.toString());
-                    //Log.e("Valor:", Cuenta_response.get(2).toString());
-
-                            /*for (int i = 0; Cuenta_response.length() < 1; i++) {
-                                JSONObject c = Cuenta_response.getJSONObject(i);
-                                //id = c.getString("numero_tarjeta");
-                            }
-
-                            Log.e("Array", Cuenta_response.toString());
-*/
-                            Toast numero = Toast.makeText(getContext(),"ya3",Toast.LENGTH_SHORT);
-                            numero.show();
-
-                            /*    if (success) {
-
-
-                                  // Toast numero = Toast.makeText(getContext(),"ya",Toast.LENGTH_SHORT);
-                                    //numero.show();
-
-                                //String usuario_id = jsonResponse.getString("user_id");
-                                String numero_cuenta=jsonResponse.getString("numero_tarjeta");
-
-
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                builder.setMessage("Login Failed").setNegativeButton("Retry", null).create().show();
-                            }*/
-                } catch (JSONException e) {
-                    e.printStackTrace();
-
-                }
-            }
-        };//Termina de devolver valores
-
-
-        ConsultarCuentaRequest ConsultarCuentaRequest = new ConsultarCuentaRequest(id_usuario, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(getContext());
-        queue.add(ConsultarCuentaRequest);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setMessage("Login Failed").setNegativeButton("Retry", null).create().show();
-
-
-        /*if (cuentasBancarias !=null && cuentasBancarias.size()>0){
-            ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(this.getActivity(),R.layout.row_spinner_cuentas, cuentasBancarias );
-            Array_cuentas.setDropDownViewResource(R.layout.row_spinner_cuentas);
-            spinner_cuentas.setAdapter(Array_cuentas);*/
-            cuentasBancarias.add("12");
-            ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, cuentasBancarias );
-            Array_cuentas.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-            spinner_cuentas.setAdapter(Array_cuentas);
-            AlertDialog.Builder bui = new AlertDialog.Builder(getContext());
-            bui.setMessage("Array").setNegativeButton("Retry", null).create().show();
-
-        //}
 
 
 //
@@ -243,66 +142,154 @@ public class FragmentAhorrar extends Fragment {
         button_calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //int cuenta= Integer.parseInt(Spinner_cuenta.getSelectedItem().toString());
-                int meta= Integer.parseInt(Edittext_meta.getText().toString());
-                int cargo= Integer.parseInt(Spinner_cargo.getSelectedItem().toString());
-                int años= Integer.parseInt(Spinner_años.getSelectedItem().toString());
-                int meses;
-                int res;
-                int cantidad = 0;
-                switch (años){
-                    case 1: meses=12;
-                        res= meses/cargo;
-                        cantidad= meta/res;
-                        break;
-                    case 2: meses=24;
-                        res= meses/cargo;
-                        cantidad= meta/res;
-                        break;
-                    case 3: meses=36;
-                        res= meses/cargo;
-                        cantidad= meta/res;
-                        break;
-                }
-
-                Textview_cantidad.setText("$ "+cantidad);
-
-                Response.Listener<String> responseListener = new Response.Listener<String>(){
-
-
-                    @Override
-                    public void onResponse(String response) {
-                        boolean exito=false;
-                        String id = null;
-
-
-                    }
-
-                };
-
+                calcular_cantidad();
 
 
             }
         });
 
 
+        //Boton cargar sppiner
+        button_llenar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Valores de cuenta
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+
+                    @Override
+                    public void onResponse(String response) {
+
+
+
+
+                        boolean exito = false;
+                        String id = null;
+
+                        try {
+
+
+                            JSONObject jsonResponse = new JSONObject(response);
+                            Toast numero3 = Toast.makeText(getContext(),"Cuentas cargadas",Toast.LENGTH_SHORT);
+                            numero3.show();
+
+
+
+                            JSONArray Cuenta_response = jsonResponse.getJSONArray("cuentas");
+
+
+
+                            for (int i = 0; i < Cuenta_response.length(); i++) {
+                                String a = Cuenta_response.get(i).toString();
+                                        //Extraer solo digitos
+                                String soloCuenta= extractDigits(a);
+
+                                if (a != null) {
+                                    cuentasBancarias.add(soloCuenta);
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                        }
+                    }
+                };//Termina de devolver valores
+
+                //Spinners
+
+
+
+                ConsultarCuentaRequest ConsultarCuentaRequest = new ConsultarCuentaRequest(id_usuario, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getContext());
+                queue.add(ConsultarCuentaRequest);
+
+
+                cuentasBancarias.add("Selecciona tu cuenta");
+                ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, cuentasBancarias );
+                Array_cuentas.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+                spinner_cuentas.setAdapter(Array_cuentas);
+
+
+                //}
+
+
+
+            }
+        });
+
         //Boton guardar e ir a la siguiente actividad
         boton_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Pregunta
-                AlertDialog.Builder builder= new AlertDialog.Builder(getActivity());
+
+                /*AlertDialog.Builder builder= new AlertDialog.Builder(getActivity());
                 builder.setTitle("DATOS AHORRO");
                 builder.setMessage("¿Deseas guardar?");
 
                 builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                    */
 
                         //Método de guardar registro
-                        int id_usuario= prefs_id.cargar_userid();
 
-                    }
+
+                        int num_cuenta = Integer.parseInt(spinner_cuentas.getSelectedItem().toString());
+                        float meta_ahorro = Float.parseFloat(Edittext_meta.getText().toString());
+                        int cargo = Integer.parseInt(Spinner_cargo.getSelectedItem().toString());
+                        int tiempo = Integer.parseInt(Spinner_años.getSelectedItem().toString());
+                        int cantidad_descuento=calcular_cantidad();
+
+
+                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+
+                            @Override
+                            public void onResponse(String response) {
+
+
+                                try {
+
+
+                                    JSONObject jsonResponse = new JSONObject(response);
+                                    boolean success = jsonResponse.getBoolean("success");
+
+
+                                    if (success) {
+                                        //FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                                        //fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentInicio()).commit();
+                                        //getActivity().getActionBar().setTitle("Inicio");
+
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                        builder.setMessage("Bien").setNegativeButton("Retry", null).create().show();
+
+
+
+                                    } else {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                        builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+
+                                }
+
+                            }
+
+                        };
+
+
+                        InsertarAhorroRequest registerRequest = new InsertarAhorroRequest(num_cuenta, meta_ahorro, cargo, tiempo, cantidad_descuento, responseListener);
+                        RequestQueue queue = Volley.newRequestQueue(getContext());
+                        queue.add(registerRequest);
+
+
+
+                /*
+                }
                 });
 
 
@@ -316,6 +303,7 @@ public class FragmentAhorrar extends Fragment {
                 });
                 AlertDialog dialog=builder.create();
                 dialog.show();
+                */
 
             }
         });
@@ -382,8 +370,57 @@ public class FragmentAhorrar extends Fragment {
         textView_titulo_ahorrar.setTypeface(face);
 
     }
+    public String extractDigits(String src) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < src.length(); i++) {
+            char c = src.charAt(i);
+            if (Character.isDigit(c)) {
+                builder.append(c);
+            }
+        }
+        return builder.toString();
+    }
 
+    public boolean validaciones()
+    {
+        boolean dato=true;
 
+        if(spinner_cuentas.getSelectedItem().toString()=="Selecciona tu cuenta")
+        {
+            dato=false;
+            Toast.makeText(getContext(), "Se necesita seleccionar una cuenta", Toast.LENGTH_SHORT).show();
+
+        }
+
+        return dato;
+    }
+
+ public int calcular_cantidad(){
+     int meta= Integer.parseInt(Edittext_meta.getText().toString());
+     int cargo= Integer.parseInt(Spinner_cargo.getSelectedItem().toString());
+     int años= Integer.parseInt(Spinner_años.getSelectedItem().toString());
+     int meses;
+     int res;
+     int cantidad = 0;
+     switch (años){
+         case 1: meses=12;
+             res= meses/cargo;
+             cantidad= meta/res;
+             break;
+         case 2: meses=24;
+             res= meses/cargo;
+             cantidad= meta/res;
+             break;
+         case 3: meses=36;
+             res= meses/cargo;
+             cantidad= meta/res;
+             break;
+     }
+
+     Textview_cantidad.setText("$ "+cantidad);
+     return cantidad;
+
+ }
 
 
 

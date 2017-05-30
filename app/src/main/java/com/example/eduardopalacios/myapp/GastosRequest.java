@@ -1,13 +1,8 @@
 package com.example.eduardopalacios.myapp;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-
-import java.util.HashMap;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
-import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +18,7 @@ public class GastosRequest extends StringRequest{
 
     public GastosRequest(double cantidad,String categoria, int id_informe_gastos, Response.Listener<String>listener)
     {
-        super(Request.Method.POST, GASTOS_REQUEST_URL,listener,null);
+        super(Method.POST, GASTOS_REQUEST_URL,listener,null);
         params=new HashMap<>();
         params.put("cantidad_gastos", cantidad+ "");
         params.put("categoria", categoria);

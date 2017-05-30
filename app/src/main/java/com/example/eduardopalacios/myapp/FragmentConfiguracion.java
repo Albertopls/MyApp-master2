@@ -1,141 +1,99 @@
 package com.example.eduardopalacios.myapp;
 
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
+import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
+import android.view.MenuItem;
 
-import static android.content.Context.MODE_PRIVATE;
+import java.util.List;
 
 /**
  * Created by Ely'z on 25/05/2017.
  */
 
-public class FragmentConfiguracion extends Fragment {
+public class FragmentConfiguracion extends PreferenceActivity {
 
-    Toolbar mToolbar;
-    Button mRedColor;
-    Button mBlueColor;
-    Button mYellowColor;
-    TextView textView_color;
+    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
+
+        public boolean onPreferenceChange(Preference preference, Object value) {
+            String stringValue = value.toString();
+
+            if (preference instanceof ListPreference) {
+                // For list preferences, look up the correct display value in
+                // the preference's 'entries' list.
+                ListPreference listPreference = (ListPreference) preference;
+                int index = listPreference.findIndexOfValue(stringValue);
+
+                // Set the summary to reflect the new value.
+                preference.setSummary(
+                        index >= 0
+                                ? listPreference.getEntries()[index]
+                                : null);
+
+            }else {
+                // For all other preferences, set the summary to the value's
+                // simple string representation.
+                preference.setSummary(stringValue);
+            }
+            return true;
+        }
+    };
+
+    private static void bindPreferenceSummaryToValue(Preference preference) {
+        // Set the listener to watch for value changes.
+        preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
+
+        // Trigger the listener immediately with the preference's
+        // current value.
+        sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
+                PreferenceManager
+                        .getDefaultSharedPreferences(preference.getContext())
+                        .getString(preference.getKey(), ""));
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-    }
-
-
-    private void storeColor(int color){
-        SharedPreferences msharedPreferences = getContext().getSharedPreferences("ToolbarColor",MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = msharedPreferences.edit();
-        mEditor.putInt("color", color);
-        mEditor.apply();
-    }
-
-    private int getColor(){
-        SharedPreferences msharedPreferences = getContext().getSharedPreferences("ToolbarColor",MODE_PRIVATE);
-        int selectedColor = msharedPreferences.getInt("color",getResources().getColor(R.color.colorPrimary));
-        return selectedColor;
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_fragment_configuracion, container, false);
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public void onBuildHeaders(List<Header> target) {
+        loadHeadersFromResource(R.xml.pref_headers, target);
+    }
 
-        inicializar_componentes(view);
+    protected boolean isValidFragment(String fragmentName) {
+        return PreferenceFragment.class.getName().equals(fragmentName)
+                || GeneralPreferenceFragment.class.getName().equals(fragmentName);
+    }
 
-        try {
-            if (getColor() != getResources().getColor(R.color.colorPrimary)) {
-                mToolbar.setBackgroundColor(getColor());
-                try {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        getActivity().getWindow().setStatusBarColor(getColor());
-                    }
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static class GeneralPreferenceFragment extends PreferenceFragment {
 
-            mRedColor.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_general);
+            setHasOptionsMenu(true);
 
-                public void onClick(View view) {
-                    mToolbar.setBackgroundColor(getResources().getColor(R.color.colorRed));
-                    try {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorRed));
-                        }
-                        storeColor(getResources().getColor(R.color.colorRed));
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-
-                }
-            });
-
-            mBlueColor.setOnClickListener(new View.OnClickListener() {
-
-                public void onClick(View view) {
-                    mToolbar.setBackgroundColor(getResources().getColor(R.color.colorBlue));
-                    try {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorBlue));
-                        }
-                        storeColor(getResources().getColor(R.color.colorBlue));
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-
-                }
-
-            });
-
-            mYellowColor.setOnClickListener(new View.OnClickListener() {
-
-                public void onClick(View view) {
-                    mToolbar.setBackgroundColor(getResources().getColor(R.color.colorYellow));
-                    try {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorYellow));
-                        }
-                        storeColor(getResources().getColor(R.color.colorYellow));
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-
-                }
-            });
+            bindPreferenceSummaryToValue(findPreference("edittext_preference"));
         }
-        catch (Exception e){
-            e.printStackTrace();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            startActivity(new Intent(FragmentConfiguracion.this, Navigationdrawer.class));
+            return true;
         }
-
-
-        return view;
+        return super.onOptionsItemSelected(item);
     }
 
-    public void inicializar_componentes(View view){
-        mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        mRedColor = (Button) view.findViewById(R.id.btnred);
-        mBlueColor = (Button) view.findViewById(R.id.btnblue);
-        mYellowColor = (Button) view.findViewById(R.id.btnyellow);
-        textView_color= (TextView)view.findViewById(R.id.textView_color);
-
-    }
-    //Cambio de letra
-    public void cambiar_letra(){
-        Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");
-
-        textView_color.setTypeface(face);
-
-    }
 
 }
+
