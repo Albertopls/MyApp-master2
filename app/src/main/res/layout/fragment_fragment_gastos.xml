@@ -28,26 +28,34 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.78"
-                android:text="Informe activo de mis gastos: "
+                android:text=" Informe activo de mis gastos: "
                 android:textColor="#FFFFFF"
-                android:textSize="32sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/text_nombreinforme"
-                android:layout_width="match_parent"
+                android:layout_width="306dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.78"
-                android:text=""
+                android:text=" Informe Abierto a Editar:"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="218dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
+                <Spinner
+                    android:id="@+id/spinner_editar_informe"
+                    style="@style/Spinner_style"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.63"
+                    android:ems="10"
+                    android:hint="Selleciona Informe Abierto $"
+                    android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout
