@@ -1,14 +1,19 @@
 package com.example.eduardopalacios.myapp;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.icu.util.Calendar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,7 +28,10 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 public class AgregarTarjeta extends AppCompatActivity {
-
+    private DatePicker datePicker;
+    private Calendar calendar;
+    private TextView dateView;
+    private int year, month, day;
     TextView titulo;
     PreferenciasUsuario prefid= new PreferenciasUsuario(this);
     @Override
@@ -148,6 +156,10 @@ public class AgregarTarjeta extends AppCompatActivity {
 
 
     }
+
+
+
+
     public boolean validaciones()
     {
         boolean dato=true;

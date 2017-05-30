@@ -62,7 +62,7 @@ public class Navigationdrawer extends AppCompatActivity
         if(!cargar_falso())
         {
 
-            Toast.makeText(this, "Welcome " + id_user, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Welcome " + first_name, Toast.LENGTH_LONG).show();
         }
 
 

@@ -43,7 +43,7 @@
             android:id="@+id/first_name"
             android:hint="First Name"
             android:drawableLeft="@drawable/ic_person_black_24dp"
-
+            android:maxLength="20"
             />
 
         <EditText
@@ -60,6 +60,7 @@
             android:hint="Email Address"
             android:drawableLeft="@drawable/ic_email_black"
             android:inputType="textEmailAddress"
+            android:maxLength="20"
 
             />
 
@@ -69,7 +70,7 @@
             android:inputType="textPassword"
             android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:hint="Password"
-
+            android:maxLength="10"
             />
 
         <EditText
@@ -78,7 +79,7 @@
             android:inputType="textPassword"
             android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:hint="Confirm Password"
-
+            android:maxLength="10"
             />
 
         <Button

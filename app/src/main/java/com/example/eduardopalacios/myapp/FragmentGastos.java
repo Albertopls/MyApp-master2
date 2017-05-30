@@ -59,6 +59,7 @@ public class FragmentGastos extends Fragment {
     Button boton_GuardarGasto, boton_mas;
 
     ListView lista_categoria, lista_cantidad;
+    TextView text_nuevoinforme2;
 
     Spinner spinner_categoria, spinner_periodo;
     ArrayAdapter<String> adapter;
@@ -293,13 +294,12 @@ public class FragmentGastos extends Fragment {
         boton_mas= (Button) view.findViewById(R.id.button_m);
         lista_categoria= (ListView) view.findViewById(R.id.list_categoria);
         lista_cantidad= (ListView) view.findViewById(R.id.list_cantidad);
-        nuevo_informe=(TextView) view.findViewById(R.id.text_nuevoinforme2);
-        nombre_informe=(TextView)view.findViewById(R.id.text_nombreinforme);
+        text_nuevoinforme2= (TextView)view.findViewById(R.id.text_nuevoinforme2);
 
     }
     public void cambiar_letra(){
         Typeface face= Typeface.createFromAsset(getActivity().getAssets(),"fonts/Langdon.otf");
-        nuevo_informe.setTypeface(face);
+        text_nuevoinforme2.setTypeface(face);
 
     }
 

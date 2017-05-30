@@ -26,7 +26,7 @@
             android:weightSum="1">
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textView_titulo_ahorrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -105,7 +105,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:maxLength="6"/>
 
             </LinearLayout>
 
@@ -118,13 +119,13 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.75"
                     android:text="3. El cargo sera cada:"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0.75" />
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/Spinner_cargo"
@@ -138,9 +139,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
+                    android:text="Mes(es)"
                     android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:text="Mes(es)" />
+                    android:textSize="18sp" />
 
             </LinearLayout>
 

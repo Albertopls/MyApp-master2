@@ -45,6 +45,7 @@ public class FragmentAgregarTarjeta extends Fragment {
 
     TextView titulo;
     PreferenciasUsuario prefid;
+    Spinner spinner;
 
     private OnFragmentInteractionListener mListener;
 
@@ -155,10 +156,12 @@ public class FragmentAgregarTarjeta extends Fragment {
 
 
                                 if (success) {
-                                    FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
-                                    fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentInicio()).commit();
-                                    getActivity().getActionBar().setTitle("Inicio");
+                                    //FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                                    //fragmentManager.beginTransaction().replace(R.id.content_navigationdrawer, new FragmentInicio()).commit();
+                                    //getActivity().getActionBar().setTitle("Inicio");
 
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                    builder.setMessage("Bien").setNegativeButton("Retry", null).create().show();
                                    /*
                                     String valor_id= String.valueOf(id_user);
                                     boolean opcion=true;

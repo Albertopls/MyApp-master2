@@ -52,6 +52,7 @@
             android:hint="Email"
             android:drawableLeft="@drawable/ic_email_black"
             android:id="@+id/Email_address"
+            android:maxLength="45"
              />
 
         <EditText
@@ -60,6 +61,7 @@
             android:hint="Password"
             android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:id="@+id/password"
+            android:maxLength="10"
             />
 
         <CheckBox
