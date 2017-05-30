@@ -200,6 +200,12 @@ public class FragmentAhorrar extends Fragment {
                 }
             }
         };//Termina de devolver valores
+
+
+        ConsultarCuentaRequest ConsultarCuentaRequest = new ConsultarCuentaRequest(id_usuario, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(ConsultarCuentaRequest);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMessage("Login Failed").setNegativeButton("Retry", null).create().show();
 
@@ -275,9 +281,6 @@ public class FragmentAhorrar extends Fragment {
                 };
 
 
-                ConsultarCuentaRequest ConsultarCuentaRequest = new ConsultarCuentaRequest(id_usuario, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(getContext());
-                queue.add(ConsultarCuentaRequest);
 
             }
         });
