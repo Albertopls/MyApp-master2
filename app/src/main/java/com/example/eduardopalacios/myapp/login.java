@@ -90,6 +90,7 @@ public class login extends AppCompatActivity {
 
                                 if (success) {
                                     String first_name = jsonResponse.getString("first_name");
+                                    String last_name= jsonResponse.getString("last_name");
                                     String usuario_id = jsonResponse.getString("user_id");
                                     String email = jsonResponse.getString("email");
                                     int id_usuario = Integer.parseInt(usuario_id);
@@ -102,6 +103,7 @@ public class login extends AppCompatActivity {
                                     prefid.escribePreferencia_userid(id_usuario);
                                     prefid.escribePreferencia_nombreusuario(first_name);
                                     prefid.escribePreferencia_email(email);
+                                    prefid.escribePreferencia_last_name(last_name);
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
                                     builder.setMessage("Esta cuenta no existe").setNegativeButton("Intentar de nuevo", null).create().show();

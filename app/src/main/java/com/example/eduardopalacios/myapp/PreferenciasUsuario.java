@@ -102,6 +102,28 @@ public class PreferenciasUsuario {
         }
     }
 
+    public boolean escribePreferencia_last_name(String last_name){
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        SharedPreferences.Editor editor=prefs.edit();
+        try{
+            editor.putString("last_name", last_name);
+
+            editor.apply();
+            return true;
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+
+    public String cargar_last_name() {
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        String last_name = prefs.getString("last_name", "");
+        return last_name;
+    }
+
     public boolean escribePreferencia_email(String email){
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
         SharedPreferences.Editor editor=prefs.edit();

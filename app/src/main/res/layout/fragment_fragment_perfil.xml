@@ -115,15 +115,24 @@
             android:textAlignment="center"
             android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/textViewNumeroTarjeta"
+        <Spinner
+            android:id="@+id/spinner_perfil"
+            style="@style/Spinner_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/textView10"
-            android:text="Numero de Tarjeta"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/button_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="15dp" />
+            android:background="@drawable/button_submit"
+            android:text="Mis Cuentas"
+            android:layout_below="@+id/spinner_perfil"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 </FrameLayout>

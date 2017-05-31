@@ -10,12 +10,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -41,7 +51,11 @@ public class FragmentPerfil extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    Button button_llenar;
+    Spinner spinner_cuentas;
 
+
+    List<String> cuentasBancarias = new ArrayList<String>();
 
     private OnFragmentInteractionListener mListener;
 
@@ -82,40 +96,89 @@ public class FragmentPerfil extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment_perfil, container, false);
         inicializar_componentes(view);
 
-        //Nombre de usuario
+        //Nombre de usuario, apellido, email
         final PreferenciasUsuario prefs_id= new PreferenciasUsuario(getActivity());
+
+
         String nombre= prefs_id.cargar_nombreusuario();
+        String apellido = prefs_id.cargar_last_name();
         String email = prefs_id.cargar_email();
 
-
-        textViewUsername.setText(nombre);
+        textViewUsername.setText(nombre+ " " +apellido);
         textViewUserEmail.setText(email);
 
-        Response.Listener<String> responseListener = new Response.Listener<String>(){
+        //Cuentas
+        button_llenar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+        //Valores de cuenta
+
+         int id_usuario= prefs_id.cargar_userid();
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+
 
             @Override
             public void onResponse(String response) {
+
+
+
+
                 boolean exito = false;
+                String id = null;
 
                 try {
 
-                    JSONObject jsonResponse = new JSONObject(response);
-                    boolean success = jsonResponse.getBoolean("success");
 
-                    if (success){
-                        String nombre= prefs_id.cargar_nombreusuario();
-                        String email = prefs_id.cargar_email();
-                        textViewUsername.setText(nombre);
-                        textViewUserEmail.setText(email);
+                    JSONObject jsonResponse = new JSONObject(response);
+                    Toast numero3 = Toast.makeText(getContext(),"Cuentas cargadas",Toast.LENGTH_SHORT);
+                    numero3.show();
+
+
+
+                    JSONArray Cuenta_response = jsonResponse.getJSONArray("cuentas");
+
+
+
+                    for (int i = 0; i < Cuenta_response.length(); i++) {
+                        String a = Cuenta_response.get(i).toString();
+                        //Extraer solo digitos
+                        String soloCuenta= extractDigits(a);
+
+                        if (a != null) {
+                            cuentasBancarias.add(soloCuenta);
+                        }
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
 
+                }
             }
-        };
-        // Cambiar de letra el titulo
+        };//Termina de devolver valores
+
+        //Spinners
+
+
+
+        ConsultarCuentaRequest ConsultarCuentaRequest = new ConsultarCuentaRequest(id_usuario, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(ConsultarCuentaRequest);
+
+
+        cuentasBancarias.add("Mis cuentas");
+        ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, cuentasBancarias );
+        Array_cuentas.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner_cuentas.setAdapter(Array_cuentas);
+
+
+        //}
+
+
+
+    }
+});
+
+
 
         return view;
     }
@@ -123,9 +186,9 @@ public class FragmentPerfil extends Fragment {
     public void onResume(){
         super.onResume();
         Log.i(TAG, "onResume()");
-        toggleTheme();
+        //toggleTheme();
     }
-
+/*
     private void toggleTheme() {
 
         // Following options to change the Theme must precede setContentView().
@@ -142,7 +205,7 @@ public class FragmentPerfil extends Fragment {
         Log.i(TAG, "MainActivity:  Name=" + myName);
     }
 
-
+*/
 
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -185,7 +248,20 @@ public class FragmentPerfil extends Fragment {
     }
 
     public void inicializar_componentes(View view){
+        spinner_cuentas= (Spinner) view.findViewById(R.id.spinner_perfil);
+        button_llenar=(Button) view.findViewById(R.id.button_perfil);
         textViewUsername = (TextView) view.findViewById(R.id.textViewUsername);
         textViewUserEmail = (TextView) view.findViewById(R.id.textViewUserEmail);
+    }
+
+    public String extractDigits(String src) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < src.length(); i++) {
+            char c = src.charAt(i);
+            if (Character.isDigit(c)) {
+                builder.append(c);
+            }
+        }
+        return builder.toString();
     }
 }

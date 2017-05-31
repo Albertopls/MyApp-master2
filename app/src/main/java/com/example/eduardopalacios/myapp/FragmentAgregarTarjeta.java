@@ -47,7 +47,7 @@ public class FragmentAgregarTarjeta extends Fragment {
 
 
     private int año, mes, dia;
-    private EditText date_fecha;
+
     private static final int tipo_Dialog=0;
     private static DatePickerDialog.OnDateSetListener oyenteSelectorFecha;
     TextView titulo;
@@ -306,20 +306,13 @@ public class FragmentAgregarTarjeta extends Fragment {
 
 //al dar click en el text view
 
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.editText_date:
-                showDatePickerDialog(date_fecha);
-                break;
-        }
-    }
 //mostrar dialogo
     private void showDatePickerDialog(final EditText editText_date) {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because january is zero
-                final String selectedDate = twoDigits(day) + " / " + twoDigits(month+1) + " / " + year;
+                final String selectedDate = year  + " - " +twoDigits(month+1)+ " - " + twoDigits(day)  ;
                 editText_date.setText(selectedDate);
             }
         });
