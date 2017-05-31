@@ -76,6 +76,7 @@ public class login extends AppCompatActivity {
                         ProgressDialog dialog = ProgressDialog.show(login.this, "",
                                 "Espere por favor; Estamos preparando Start Saving", true);
 
+
                         @Override
                         public void onResponse(String response) {
                             boolean exito = false;
@@ -104,6 +105,7 @@ public class login extends AppCompatActivity {
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
                                     builder.setMessage("Esta cuenta no existe").setNegativeButton("Intentar de nuevo", null).create().show();
+                                    dialog.dismiss();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -114,7 +116,7 @@ public class login extends AppCompatActivity {
                                 cargar_archivo();
 
                                 Intent intent2 = new Intent(login.this, Navigationdrawer.class);
-                                intent2.putExtra("identificador", nombre[0]);
+                                finish();
                             }
                         }
                     };

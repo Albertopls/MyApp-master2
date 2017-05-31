@@ -38,6 +38,31 @@ public class PreferenciasUsuario {
         return user_id;
     }
 
+
+    public boolean escribePreferencia_id_cuenta(int id_cuenta){
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        SharedPreferences.Editor editor=prefs.edit();
+
+        try{
+
+            editor.putInt("id_cuenta", id_cuenta);
+            editor.apply();
+            return true;
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    public int cargar_id_cuenta() {
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
+        int id_cuenta = prefs.getInt("id_cuenta", -1);
+
+
+        return id_cuenta;
+    }
+
     public boolean escribePreferencia_user_user_id(int user_user_id){
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(contexto.getBaseContext());
         SharedPreferences.Editor editor=prefs.edit();
