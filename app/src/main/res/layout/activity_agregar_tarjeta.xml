@@ -58,7 +58,7 @@
                     android:ems="10"
                     android:hint="Número de tarjeta"
                     android:inputType="number"
-                    android:maxLength="16"/>
+                    android:maxLength="14"/>
 
 
             </LinearLayout>

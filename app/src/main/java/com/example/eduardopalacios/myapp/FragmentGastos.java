@@ -23,6 +23,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,18 +53,23 @@ public class FragmentGastos extends Fragment {
 
     TextView nuevo_informe, nombre_informe;
 
-    Button boton_GuardarGasto, boton_mas;
+    Button boton_mostrarInformes, boton_GuardarGasto, boton_mas;
 
     ListView lista_categoria, lista_cantidad;
     TextView text_nuevoinforme2;
 
-    Spinner spinner_categoria, spinner_periodo;
+    Spinner spinner_categoria, spinner_informes;
     ArrayAdapter<String> adapter;
     ArrayAdapter<String> adapterList_cantidad, adapterList_categoria;
 
 
+
+
     List<String> contenido_lista_cantidad = new ArrayList<String>();
     List<String> contenido_lista_categoria = new ArrayList<String>();
+    List<String> informes = new ArrayList<String>();
+
+
     private OnFragmentInteractionListener mListener;
 
     public FragmentGastos() {
@@ -102,10 +108,11 @@ public class FragmentGastos extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_fragment_gastos, container, false);
         final PreferenciasUsuario prefid= new PreferenciasUsuario(getActivity());
+        final int id_usuario=prefid.cargar_userid();
         inicializarComponentes(view);
         cambiar_letra();
 
-        //nombre_informe.setText(prefid.cargar_nombre_informe());
+
         //Spinner categoria
 
         String contenido_categoria[]={"Entretenimiento", "Comida", "Trabajo", "Transporte", "Otros"};
@@ -113,11 +120,204 @@ public class FragmentGastos extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner_categoria.setAdapter(adapter);
 
+       //Botones
+
+        //Boton mostrar informes
+
+        boton_mostrarInformes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Valores de cuenta
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+
+                    @Override
+                    public void onResponse(String response) {
+
+
+
+
+                        boolean exito = false;
+                        String id = null;
+
+                        try {
+
+
+                            JSONObject jsonResponse = new JSONObject(response);
+                            Toast numero3 = Toast.makeText(getContext(),"Informes cargados",Toast.LENGTH_SHORT);
+                            numero3.show();
+
+
+
+                            JSONArray Informes_response = jsonResponse.getJSONArray("informes");
+
+
+
+                            for (int i = 0; i < Informes_response.length(); i++) {
+                                String a = Informes_response.get(i).toString();
+                                //Extraer solo digitos
+                                String soloCuenta= extractNumbers_Letters(a);
+
+                                if (a != null) {
+                                    informes.add(soloCuenta);
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                        }
+                    }
+                };//Termina de devolver valores
+
+                //Spinners
+
+
+
+                ConsultarInformesRequest ConsultarInfomeRequest = new ConsultarInformesRequest(id_usuario, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getContext());
+                queue.add(ConsultarInfomeRequest);
+
+
+                informes.add("Selecciona un informe");
+                ArrayAdapter<String> Array_cuentas = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, informes );
+                Array_cuentas.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+                spinner_informes.setAdapter(Array_cuentas);
+
+
+                //}
+
+
+
+            }
+        });
+
 
         //Boton más
         boton_mas.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View v) {
+
+                if (validaciones(ed_cantidad)) {
+
+
+                    final double cantidad = Double.parseDouble(ed_cantidad.getText().toString());
+                    final String categoria = spinner_categoria.getSelectedItem().toString();
+                    String nombre = spinner_informes.getSelectedItem().toString();
+
+                    //Consulta id_informe
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        Toast numero3 = Toast.makeText(getContext(), "Consultar_id", Toast.LENGTH_SHORT);
+
+                        @Override
+                        public void onResponse(String response) {
+                            boolean exito = false;
+
+                            try {
+
+
+                                JSONObject jsonResponse = new JSONObject(response);
+                                boolean success = jsonResponse.getBoolean("success");
+
+
+                                if (success) {
+                                    String idinforme = jsonResponse.getString("id_Informe_gastos");
+
+
+                                    int id_informe = Integer.parseInt(idinforme);
+                                    prefid.escribePreferencia_idinforme(id_informe);
+
+                                    //Insertar gastos en informe
+
+                                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+                                        Toast numero3 = Toast.makeText(getContext(), "Informes cargados", Toast.LENGTH_SHORT);
+                                        final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
+                                                "Loading. Please wait...", true);
+
+                                        @Override
+                                        public void onResponse(String response) {
+
+
+                                            try {
+
+
+                                                JSONObject jsonResponse = new JSONObject(response);
+                                                boolean success = jsonResponse.getBoolean("success");
+
+
+                                                if (success) {
+                                                    dialog.dismiss();
+                                                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                                    builder.setMessage("Gasto registrado");
+                                                    builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+
+                                                            dialog.dismiss();
+
+                                                        }
+                                                    });
+                                                    AlertDialog dialog = builder.create();
+                                                    dialog.show();
+                                                    String nombre = spinner_categoria.getSelectedItem().toString();
+                                                    String cantidad = ed_cantidad.getText().toString().trim();
+
+                                                    contenido_lista_cantidad.add(cantidad);
+                                                    contenido_lista_categoria.add(nombre);
+
+                                                    adapterList_cantidad = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista_cantidad);
+                                                    lista_cantidad.setAdapter(adapterList_cantidad);
+
+                                                    adapterList_categoria = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, contenido_lista_categoria);
+                                                    lista_categoria.setAdapter(adapterList_categoria);
+
+
+                                                    ed_cantidad.setText("");
+                                                    spinner_categoria.setId(0);
+
+
+                                                } else {
+                                                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                                    builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
+                                                }
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+
+                                            }
+
+                                        }
+
+                                    };
+
+
+                                    GastosRequest registerRequest = new GastosRequest(cantidad, categoria, id_informe, responseListener);
+                                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                                    queue.add(registerRequest);
+
+
+                                } else {
+
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+
+                            }
+
+
+                        }
+
+                    };
+
+
+                    Id_InformeRequest informeRequest = new Id_InformeRequest(nombre, id_usuario, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getContext());
+                    queue.add(informeRequest);
+
+                }
+
+                /*
 
                 if (validaciones(ed_cantidad)) {
                     final int id_informe= prefid.cargar_idinforme();
@@ -173,19 +373,6 @@ public class FragmentGastos extends Fragment {
                                     spinner_categoria.setId(0);
 
 
-                                   /*
-                                    String valor_id= String.valueOf(id_user);
-                                    boolean opcion=true;
-                                    String opcions=String.valueOf(opcion);
-                                    Intent i = new Intent(AgregarTarjeta.this, Navigationdrawer.class);
-
-
-                                    i.putExtra("identificador_id", valor_id);
-                                    i.putExtra("identificador_boolean",opcions);
-
-
-                                   startActivity(i);
-                                   */
 
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -205,13 +392,16 @@ public class FragmentGastos extends Fragment {
                     RequestQueue queue = Volley.newRequestQueue(getContext());
                     queue.add(registerRequest);
 
+                    }
+                    */
 
-                }
+
 
 
 
             }
-                                              });
+
+        });
 
 
         //Boton Guardar gasto
@@ -266,16 +456,7 @@ public class FragmentGastos extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
@@ -285,9 +466,11 @@ public class FragmentGastos extends Fragment {
 
     public void inicializarComponentes(View view){
         spinner_categoria = (Spinner)view.findViewById(R.id.spn_categoria);
+        spinner_informes= (Spinner) view.findViewById(R.id.spinner_editar_informe);
         ed_cantidad= (EditText) view.findViewById(R.id.edit_cantidad);
         boton_GuardarGasto= (Button) view.findViewById(R.id.Button_GuardarGasto);
         boton_mas= (Button) view.findViewById(R.id.button_m);
+        boton_mostrarInformes= (Button) view.findViewById(R.id.button_mostrar_informes);
         lista_categoria= (ListView) view.findViewById(R.id.list_categoria);
         lista_cantidad= (ListView) view.findViewById(R.id.list_cantidad);
         text_nuevoinforme2= (TextView)view.findViewById(R.id.text_nuevoinforme2);
@@ -314,5 +497,15 @@ public class FragmentGastos extends Fragment {
         return dato;
     }
 
+    public String extractNumbers_Letters(String src) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < src.length(); i++) {
+            char c = src.charAt(i);
+            if (Character.isDigit(c) || Character.isAlphabetic(c)) {
+                builder.append(c);
+            }
+        }
+        return builder.toString();
+    }
 
 }

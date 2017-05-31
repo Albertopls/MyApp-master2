@@ -237,92 +237,92 @@ public class FragmentAhorrar extends Fragment {
                         //Método de guardar registro
 
 
-                        int num_cuenta = Integer.parseInt(spinner_cuentas.getSelectedItem().toString());
-                        final double meta_ahorro = Float.parseFloat(Edittext_meta.getText().toString());
-                        final int cargo = Integer.parseInt(Spinner_cargo.getSelectedItem().toString());
-                        final int tiempo = Integer.parseInt(Spinner_años.getSelectedItem().toString());
-                        final double cantidad_descuento=calcular_cantidad();
 
 
-                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        if(validaciones() && validaciones(Edittext_meta)) {
+                            int num_cuenta = Integer.parseInt(spinner_cuentas.getSelectedItem().toString());
+                            final double meta_ahorro = Float.parseFloat(Edittext_meta.getText().toString());
+                            final int cargo = Integer.parseInt(Spinner_cargo.getSelectedItem().toString());
+                            final int tiempo = Integer.parseInt(Spinner_años.getSelectedItem().toString());
+                            final double cantidad_descuento=calcular_cantidad();
+
+                            Response.Listener<String> responseListener = new Response.Listener<String>() {
 
 
-                            @Override
-                            public void onResponse(String response) {
+                                @Override
+                                public void onResponse(String response) {
 
 
-                                try {
+                                    try {
 
 
-                                    JSONObject jsonResponse = new JSONObject(response);
-                                    boolean success = jsonResponse.getBoolean("success");
+                                        JSONObject jsonResponse = new JSONObject(response);
+                                        boolean success = jsonResponse.getBoolean("success");
 
 
-                                    if (success) {
-                                        String id_cuenta = jsonResponse.getString("id_cuenta");
-                                        prefs_id.escribePreferencia_id_cuenta(Integer.parseInt(id_cuenta));
+                                        if (success) {
+                                            String id_cuenta = jsonResponse.getString("id_cuenta");
+                                            prefs_id.escribePreferencia_id_cuenta(Integer.parseInt(id_cuenta));
 
-                                        int cuenta_id=prefs_id.cargar_id_cuenta();
-
-
-                                        Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                            int cuenta_id = prefs_id.cargar_id_cuenta();
 
 
-                                            @Override
-                                            public void onResponse(String response) {
+                                            Response.Listener<String> responseListener = new Response.Listener<String>() {
 
 
-                                                try {
+                                                @Override
+                                                public void onResponse(String response) {
 
 
-                                                    JSONObject jsonResponse = new JSONObject(response);
-                                                    boolean success = jsonResponse.getBoolean("success");
+                                                    try {
 
 
-                                                    if (success) {
-                                                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                                        builder.setMessage( "Ahorro agregado").setNegativeButton("Retry", null).create().show();
+                                                        JSONObject jsonResponse = new JSONObject(response);
+                                                        boolean success = jsonResponse.getBoolean("success");
 
 
+                                                        if (success) {
+                                                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                                            builder.setMessage("Ahorro agregado").setNegativeButton("Retry", null).create().show();
 
-                                                    } else {
-                                                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                                        builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
+
+                                                        } else {
+                                                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                                            builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
+                                                        }
+                                                    } catch (JSONException e) {
+                                                        e.printStackTrace();
+
                                                     }
-                                                } catch (JSONException e) {
-                                                    e.printStackTrace();
 
                                                 }
 
-                                            }
-
-                                        };
+                                            };
 
 
-                                        InsertarAhorro registerRequest = new InsertarAhorro(meta_ahorro, cargo, tiempo, cantidad_descuento, cuenta_id, responseListener);
-                                        RequestQueue queue = Volley.newRequestQueue(getContext());
-                                        queue.add(registerRequest);
+                                            InsertarAhorro registerRequest = new InsertarAhorro(meta_ahorro, cargo, tiempo, cantidad_descuento, cuenta_id, responseListener);
+                                            RequestQueue queue = Volley.newRequestQueue(getContext());
+                                            queue.add(registerRequest);
 
 
+                                        } else {
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                            builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
 
-
-                                    } else {
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                        builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
                                     }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
 
                                 }
 
-                            }
-
-                        };
+                            };
 
 
-                        ConsultarIdCuenta registerRequest = new ConsultarIdCuenta(num_cuenta, responseListener);
-                        RequestQueue queue = Volley.newRequestQueue(getContext());
-                        queue.add(registerRequest);
+                            ConsultarIdCuenta registerRequest = new ConsultarIdCuenta(num_cuenta, responseListener);
+                            RequestQueue queue = Volley.newRequestQueue(getContext());
+                            queue.add(registerRequest);
+                        }
 
 
 
@@ -459,6 +459,20 @@ public class FragmentAhorrar extends Fragment {
      return cantidad;
 
  }
+
+    public boolean validaciones(EditText ed_meta )
+    {
+        boolean dato=true;
+
+        if(ed_meta.getText().toString().trim().length()==0)
+        {
+            dato=false;
+            Toast.makeText(getContext(), "No ingresaste una meta", Toast.LENGTH_SHORT).show();
+
+        }
+
+        return dato;
+    }
 
 
 

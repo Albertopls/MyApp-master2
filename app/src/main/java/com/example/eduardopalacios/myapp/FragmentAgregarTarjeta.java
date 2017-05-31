@@ -275,25 +275,25 @@ public class FragmentAgregarTarjeta extends Fragment {
             if(num_tarjeta.getText().toString().trim().length()==0)
             {
                 dato=false;
-                Toast.makeText(getContext(), "You did not number of card", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "No ingresaste un número de tarjeta", Toast.LENGTH_SHORT).show();
 
             }
             if(cvc.getText().toString().trim().length()==0)
             {
                 dato=false;
-                Toast.makeText(getContext(), "You did not enter cvp", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "No ingresaste cvp", Toast.LENGTH_SHORT).show();
 
             }
             if(fecha.getText().toString().trim().length()==0)
             {
                 dato=false;
-                Toast.makeText(getContext(), "You did not enter date", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "No ingresaste la fecha de vigencia", Toast.LENGTH_SHORT).show();
 
             }
             if(cantidad.getText().toString().trim().length()==0)
             {
                 dato=false;
-                Toast.makeText(getContext(), "You did not enter amount", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "No ingresaste la cantidad", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -312,7 +312,7 @@ public class FragmentAgregarTarjeta extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because january is zero
-                final String selectedDate = year  + " - " +twoDigits(month+1)+ " - " + twoDigits(day)  ;
+                final String selectedDate = year  + "-" +twoDigits(month+1)+ "-" + twoDigits(day)  ;
                 editText_date.setText(selectedDate);
             }
         });
