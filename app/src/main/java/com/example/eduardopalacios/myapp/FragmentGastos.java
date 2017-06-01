@@ -198,6 +198,7 @@ public class FragmentGastos extends Fragment {
         boton_mas.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View v) {
+                /*
 
                 if (validaciones(ed_cantidad)) {
 
@@ -317,7 +318,10 @@ public class FragmentGastos extends Fragment {
 
                 }
 
-                /*
+
+*/
+
+
 
                 if (validaciones(ed_cantidad)) {
                     final int id_informe= prefid.cargar_idinforme();
@@ -393,7 +397,6 @@ public class FragmentGastos extends Fragment {
                     queue.add(registerRequest);
 
                     }
-                    */
 
 
 

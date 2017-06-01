@@ -1,6 +1,7 @@
 package com.example.eduardopalacios.myapp;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -225,14 +226,14 @@ public class FragmentAhorrar extends Fragment {
             public void onClick(View view) {
                 //Pregunta
 
-                /*AlertDialog.Builder builder= new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder= new AlertDialog.Builder(getActivity());
                 builder.setTitle("DATOS AHORRO");
                 builder.setMessage("¿Deseas guardar?");
 
                 builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                    */
+
 
                         //Método de guardar registro
 
@@ -326,7 +327,7 @@ public class FragmentAhorrar extends Fragment {
 
 
 
-                /*
+
                 }
                 });
 
@@ -341,7 +342,7 @@ public class FragmentAhorrar extends Fragment {
                 });
                 AlertDialog dialog=builder.create();
                 dialog.show();
-                */
+
 
             }
         });
