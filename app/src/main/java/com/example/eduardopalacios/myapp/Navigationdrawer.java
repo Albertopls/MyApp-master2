@@ -141,7 +141,8 @@ public class Navigationdrawer extends AppCompatActivity
             getSupportActionBar().setTitle("Ver Informe Gastos");
 
         }else if(id== R.id.nav_manage){
-            Navigationdrawer.this.startActivity(new Intent(Navigationdrawer.this, FragmentConfiguracion.class));
+            Intent intent = new Intent(this, FragmentConfiguracion.class);
+            startActivity(intent);
             FragmentoSeleccionado = true;
             getSupportActionBar().setTitle("Configuración");
 
