@@ -9,6 +9,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.view.MenuItem;
 
 import java.util.List;
@@ -17,9 +18,22 @@ import java.util.List;
  * Created by Ely'z on 25/05/2017.
  */
 
-public class FragmentConfiguracion extends PreferenceActivity {
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+public class FragmentConfiguracion extends PreferenceFragment {
 
-    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
+
+     public FragmentConfiguracion(){
+
+     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.pref_headers);
+        addPreferencesFromResource(R.xml.pref_general);
+    }
+
+     /*private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
 
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
@@ -92,7 +106,7 @@ public class FragmentConfiguracion extends PreferenceActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 
 }
